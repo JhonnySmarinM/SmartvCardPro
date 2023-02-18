@@ -1,9 +1,22 @@
+import Navbar from "./components/Navbar";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
+import RootLayout from "./components/layouts/RootLayout";
+import Home from "./pages/Home";
 
-
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+    </Route>
+  )
+);
 function App() {
-  return (
-    <h1>Hello world</h1>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
