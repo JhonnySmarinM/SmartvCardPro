@@ -20,28 +20,30 @@ const Navbar = () => {
   });
 
   return (
-    <Container>
-      <Flex className="lg:flex">
-        <div className="lg:w-1/2">
-          <Image imgSrc="assets/logo.webp" />
-        </div>
-        <div className="lg:w-1/2">
-          <FaBars
-            className="lg:hidden md:block ml-auto mt-[-20px]"
-            onClick={() => setMenuToggle(!menuToggle)}
-          />
-          {menuToggle && (
-            <NavItem className="flex mt-5 lg:mt-0 flex-col justify-center  lg:flex-row text-secondary capitalize font-secondary font-normal lg:text-sm lg:gap-10 lg:justify-end">
-              <List link="/" itemName="home" />
-              <List link="/shop" itemName="shop" />
-              <List link="/about" itemName="about" />
-              <List link="/contacts" itemName="contacts" />
-              <List link="/journal" itemName="journal" />
-            </NavItem>
-          )}
-        </div>
-      </Flex>
-    </Container>
+    <nav className="bg-white">
+      <Container>
+        <Flex className="lg:flex">
+          <div className="lg:w-1/2">
+            <Image imgSrc="assets/logo.webp" />
+          </div>
+          <div className="lg:w-1/2">
+            <FaBars
+              className="lg:hidden md:block ml-auto mt-[-20px]"
+              onClick={() => setMenuToggle(!menuToggle)}
+            />
+            {menuToggle && (
+              <NavItem className="flex mt-5 lg:mt-0 flex-col justify-center  lg:flex-row text-secondary capitalize font-secondary font-normal lg:text-sm lg:gap-10 lg:justify-end">
+                <List link="/" itemName="home" />
+                <List link="/shop" itemName="shop" />
+                <List link="/about" itemName="about" />
+                <List link="/contacts" itemName="contacts" />
+                <List link="/journal" itemName="journal" />
+              </NavItem>
+            )}
+          </div>
+        </Flex>
+      </Container>
+    </nav>
   );
 };
 
