@@ -17,7 +17,7 @@ const Navbar = () => {
     }
     resize();
     window.addEventListener("resize", resize);
-  });
+  }, []);
 
   return (
     <nav className="bg-white">
@@ -32,7 +32,7 @@ const Navbar = () => {
               onClick={() => setMenuToggle(!menuToggle)}
             />
             {menuToggle && (
-              <NavItem className="flex mt-5 lg:mt-0 flex-col justify-center  lg:flex-row text-secondary capitalize font-secondary font-normal lg:text-sm lg:gap-10 lg:justify-end">
+              <NavItem className="flex flex-col justify-center mt-5 font-normal capitalize lg:mt-0 lg:flex-row text-secondary font-secondary lg:text-sm lg:gap-10 lg:justify-end">
                 <List link="/" itemName="home" />
                 <List link="/shop" itemName="shop" />
                 <List link="/about" itemName="about" />

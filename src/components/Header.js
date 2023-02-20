@@ -41,17 +41,17 @@ const Header = () => {
     <header className="bg-[#F5F5F3]">
       <Container>
         <Flex className="flex items-center justify-between">
-          <div className="w-[160px]">
+          <div className="lg:w-[160px] w-[80px]">
             <Dropdown
               className="relative flex items-center justify-start gap-3"
               dropRef={categoryRef}
             >
               <RiBarChartHorizontalLine className="inline-block font-bold" />
-              <p className="text-sm font-normal cursor-pointer font-secondary">
+              <p className="hidden text-sm font-normal cursor-pointer font-secondary lg:block">
                 Shop by Category
               </p>
               {categoryShow && (
-                <NavItem className="absolute top-7 left-0 bg-[#262626]  text-[#D9D9D9] w-[263px] box-border font-secondary font-normal text-sm">
+                <NavItem className="absolute  top-[42px] left-0 bg-[#262626]  text-[#D9D9D9] w-[263px] box-border font-secondary font-normal text-sm">
                   <List
                     className=" border-[#575656]  border-b border-solid py-4 px-5 hover:text-white hover:px-8  transition-all duration-[300ms] "
                     itemName="Accessories"
@@ -86,7 +86,7 @@ const Header = () => {
               )}
             </Dropdown>
           </div>
-          <div className="w-[601px] relative">
+          <div className="lg:w-[601px] w-[550px] relative lg:mr-0 mr-2">
             <Search
               className="w-full px-5 py-4 bg-white placeholder:font-secondary placeholder:font-normal placeholder:text-sm placeholder:text-[#C4C4C4] capitalize font-secondary font-normal text-sm outline-[#DAC4F6]"
               placeholder="Search Products"
@@ -99,7 +99,7 @@ const Header = () => {
           <div className="w-[160px]">
             <Flex className="flex items-center justify-around ">
               <Dropdown className="relative" dropRef={userRef}>
-                <div className="flex w-1/3 gap-3 cursor-pointer">
+                <div className="flex w-1/3 gap-2 cursor-pointer">
                   <p>
                     <FaUserAlt />
                   </p>
