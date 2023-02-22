@@ -43,7 +43,7 @@ const Header = () => {
         <Flex className="flex items-center justify-between">
           <div className="lg:w-[160px] w-[80px]">
             <Dropdown
-              className="relative flex items-center justify-start gap-3"
+              className="relative flex items-center justify-start gap-3 z-50"
               dropRef={categoryRef}
             >
               <RiBarChartHorizontalLine className="inline-block font-bold" />
@@ -98,7 +98,7 @@ const Header = () => {
           </div>
           <div className="w-[160px]">
             <Flex className="flex items-center justify-around ">
-              <Dropdown className="relative" dropRef={userRef}>
+              <Dropdown className="relative z-50" dropRef={userRef}>
                 <div className="flex w-1/3 gap-2 cursor-pointer">
                   <p>
                     <FaUserAlt />
@@ -122,7 +122,7 @@ const Header = () => {
                   </NavItem>
                 )}
               </Dropdown>
-              <Dropdown className="relative" dropRef={cartRef}>
+              <Dropdown className="relative z-50" dropRef={cartRef}>
                 <div className="w-1/3 cursor-pointer">
                   <p>
                     <FaShoppingCart />
