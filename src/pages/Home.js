@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import Bestseller from "../components/Bestseller";
 import BigAdd from "../components/BigAdd";
 import NewArrival from "../components/NewArrival";
+import SpecialOffer from "../components/SpecialOffer";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
      <NewArrival/>
      <Bestseller/>
      <BigAdd/>
+     <SpecialOffer/>
    </>
   )
 };
