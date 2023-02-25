@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
     <span className="w-16 h-16 bg-[#C7C7C7] rounded-full !flex items-center justify-center text-white text-2xl font-bold absolute top-[35%] right-[30px] z-10  translate-y-[-50%] cursor-pointer" style={{ ...style }} onClick={onClick}>
       <BsArrowRight />
@@ -15,7 +15,7 @@ function SampleNextArrow(props) {
   );
 }
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const {  style, onClick } = props;
   return (
     <span
       className="w-16 h-16 bg-[#C7C7C7] rounded-full !flex items-center justify-center text-white text-2xl font-bold absolute top-[35%] left-0 z-10  translate-y-[-50%] cursor-pointer"
