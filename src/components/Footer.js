@@ -7,9 +7,9 @@ import NavItem from "./layouts/NavItem";
 
 const Footer = () => {
   return (
-    <footer className="py-14 bg-[#F5F5F3] mt-36">
+    <footer className="py-14 bg-[#F5F5F3] sm:mt-36 mt-28">
       <Container>
-        <Flex className="flex  gap-36">
+        <Flex className="flex gap-8  lg:gap-36 flex-wrap">
           <div>
             <h5
               className="capitalize font-bold font-secondary text-[#262626] text-base mb-4

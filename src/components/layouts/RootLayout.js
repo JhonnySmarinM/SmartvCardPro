@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Copyright from "../Copyright";
 import Footer from "../Footer";
 import Header from "../Header";
 import Navbar from "../Navbar";
@@ -11,6 +12,7 @@ const RootLayout = () => {
       <Header/>
       <Outlet />
       <Footer/>
+      <Copyright/>
     </>
   );
 };
