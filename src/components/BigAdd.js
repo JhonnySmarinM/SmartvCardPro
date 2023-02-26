@@ -4,7 +4,7 @@ import Image from './layouts/Image'
 
 const BigAdd = () => {
   return (
-    <section className='sm:mt-[80px] lg:mt-[130px] mt-16'>
+    <section className='sm:my-[80px] lg:my-[130px] my-16 '>
       <Container>
         <Image imgSrc="./assets/bigadd.webp" imgAlt="bigadd" />
       </Container>

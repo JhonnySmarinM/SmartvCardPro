@@ -27,7 +27,7 @@ const Product = ({ src, alt, badge, productTitle, price, category }) => {
           </p>
         </div>
       </div>
-      <Flex className="flex items-center justify-between text-[20px] font-bold font-secondary mt-6 mb-4 capitalize text-[#262626]">
+      <Flex className="flex items-center justify-between md:text-base text-[20px] font-bold font-secondary mt-6 mb-4 capitalize text-[#262626]">
         <h4>{productTitle}</h4>
         <p className="text-base font-normal text-[#767676]">
           <span>$</span>

@@ -7,11 +7,11 @@ import Title from "./layouts/Title";
 
 const SpecialOffer = () => {
   return (
-    <section className="mt-[128px]">
+    <section >
       <Container>
         <Title title="Special Offers" className="mb-10" />
-        <Flex className="flex items-center md:gap-10 flex-wrap gap-0 sm:justify-between lg:flex-nowrap">
-          <div className="sm:max-w-[47%] ">
+        <Flex className="flex items-center md:gap-10 flex-wrap gap-0 sm:justify-between lg:flex-nowrap justify-center">
+          <div className="sm:max-w-[47%] mt-6 ">
             <Link>
               <Product
                 src="./assets/special1.webp"
@@ -22,7 +22,7 @@ const SpecialOffer = () => {
               />
             </Link>
           </div>
-          <div className="sm:max-w-[47%] ">
+          <div className="sm:max-w-[47%] mt-6 ">
             <Link>
               <Product
                 src="./assets/special2.webp"
@@ -33,7 +33,7 @@ const SpecialOffer = () => {
               />
             </Link>
           </div>
-          <div className="sm:max-w-[47%] ">
+          <div className="sm:max-w-[47%] mt-6 ">
             <Link>
               <Product
                 src="./assets/special3.webp"
@@ -44,7 +44,7 @@ const SpecialOffer = () => {
               />
             </Link>
           </div>
-          <div className="sm:max-w-[47%] ">
+          <div className="sm:max-w-[47%] mt-6 ">
             <Link>
               <Product
                 src="./assets/special4.webp"

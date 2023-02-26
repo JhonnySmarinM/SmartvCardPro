@@ -10,8 +10,8 @@ const Bestseller = () => {
     <section className="mt-[118px]">
       <Container>
         <Title title="Our Bestsellers" className="mb-10" />
-        <Flex className="flex items-center md:gap-10 flex-wrap gap-0 sm:justify-between lg:flex-nowrap">
-          <div className="sm:max-w-[47%] ">
+        <Flex className="flex items-center md:gap-10 flex-wrap gap-0 sm:justify-between lg:flex-nowrap justify-center">
+          <div className="sm:max-w-[47%] mt-6">
             <Link>
               <Product
                 src="./assets/product5.webp"
@@ -22,7 +22,7 @@ const Bestseller = () => {
               />
             </Link>
           </div>
-          <div className="sm:max-w-[47%] ">
+          <div className="sm:max-w-[47%] mt-6">
             <Link>
               <Product
                 src="./assets/product6.webp"
@@ -33,7 +33,7 @@ const Bestseller = () => {
               />
             </Link>
           </div>
-          <div className="sm:max-w-[47%] ">
+          <div className="sm:max-w-[47%] mt-6">
             <Link>
               <Product
                 src="./assets/product7.webp"
@@ -44,7 +44,7 @@ const Bestseller = () => {
               />
             </Link>
           </div>
-          <div className="sm:max-w-[47%] ">
+          <div className="sm:max-w-[47%] mt-6">
             <Link>
               <Product
                 src="./assets/product8.webp"
