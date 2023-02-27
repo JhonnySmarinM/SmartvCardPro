@@ -7,9 +7,9 @@ import Title from "./layouts/Title";
 
 const SpecialOffer = () => {
   return (
-    <section >
+    <section>
       <Container>
-        <Title title="Special Offers" className="mb-10" />
+        <Title title="Special Offers" className="mb-10 text-[39px]" />
         <Flex className="flex items-center md:gap-10 flex-wrap gap-0 sm:justify-between lg:flex-nowrap justify-center">
           <div className="sm:max-w-[47%] mt-6 ">
             <Link>

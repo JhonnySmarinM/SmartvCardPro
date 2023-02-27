@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const Title = ({ className,title }) => {
+const Title = ({ className, title }) => {
   return (
-    <h2 className={`font-bold font-secondary text-[39px] capitalize ${className}`}>
+    <h2
+      className={`font-bold font-secondary text-[#262626] capitalize ${className}`}
+    >
       {title}
     </h2>
   );
 };
 
-export default Title
+export default Title;

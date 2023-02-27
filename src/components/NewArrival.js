@@ -59,7 +59,7 @@ const NewArrival = () => {
   return (
     <section className="mt-[128px] ">
       <Container>
-        <Title title="New Arrival" className="mb-10" />
+        <Title title="New Arrival" className="mb-10 text-[39px]" />
         <Slider {...settings}>
           <div className="sm:max-w-[90%] ">
             <Link>
