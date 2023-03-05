@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="py-14 bg-[#F5F5F3] sm:mt-36 mt-28">
       <Container>
-        <Flex className="flex gap-8  lg:gap-36 flex-wrap">
+        <Flex className="flex flex-wrap gap-8 lg:gap-36">
           <div>
             <h5
               className="capitalize font-bold font-secondary text-[#262626] text-base mb-4
@@ -19,7 +19,7 @@ const Footer = () => {
             </h5>
             <NavItem className="font-secondary font-normal text-sm text-[#6D6D6D]">
               <List className="mb-2" itemName="Home" link="/" />
-              <List className="mb-2" itemName="Shop" link="/shop" />
+              <List className="mb-2" itemName="Shop" link="/products" />
               <List className="mb-2" itemName="About" link="/about" />
               <List className="mb-2" itemName="Contact" link="/contact" />
               <List className="mb-2" itemName="Journal" link="/journal" />

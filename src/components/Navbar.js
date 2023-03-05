@@ -34,7 +34,7 @@ const Navbar = () => {
             {menuToggle && (
               <NavItem className="flex flex-col justify-center mt-5 font-normal capitalize lg:mt-0 lg:flex-row text-secondary font-secondary lg:text-sm lg:gap-10 lg:justify-end">
                 <List link="/" itemName="home" />
-                <List link="/shop" itemName="shop" />
+                <List link="/products" itemName="shop" />
                 <List link="/about" itemName="about" />
                 <List link="/contacts" itemName="contacts" />
                 <List link="/journal" itemName="journal" />

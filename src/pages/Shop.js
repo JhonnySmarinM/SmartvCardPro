@@ -5,7 +5,7 @@ import Flex from "../components/layouts/Flex";
 import Option from "../components/layouts/Option";
 import Pagination from "../components/layouts/Pagination";
 import PaginationFilter from "../components/layouts/PaginationFilter";
-import Title from "../components/layouts/Title";
+
 
 const Shop = () => {
   const [pageShow, setPageShow] = useState(12);
@@ -15,11 +15,10 @@ const Shop = () => {
   return (
     <section className="mt-[124px]">
       <Container>
-        <Title title="products" className="text-[49px]" />
         <Breadcrumbs
           link1="/"
           value1="home"
-          link2="/shop"
+          link2="/products"
           value2={window.location.pathname.split("/")[1]}
         />
         <Flex className="flex gap-x-10 mt-[130px]">
