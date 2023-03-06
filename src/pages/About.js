@@ -8,7 +8,7 @@ import Image from "../components/layouts/Image";
 
 const About = () => {
   return (
-    <section className="mt-[124px]">
+    <section className="lg:mt-[124px] mt-[50px]">
       <Container>
         <Breadcrumbs
           link1="/"
@@ -16,7 +16,7 @@ const About = () => {
           link2="/about"
           value2={window.location.pathname.split("/")[1]}
         />
-        <Flex className="flex items-center gap-x-5 mt-[147px]">
+        <Flex className="flex items-center gap-x-5 lg:mt-[147px] mt-[80px]">
           <Link to="/ourbrands">
             <div>
               <Image
@@ -36,12 +36,12 @@ const About = () => {
             </div>
           </Link>
         </Flex>
-        <p className="font-normal font-secondary text-[39px] mt-[128px] mb-[118px]">
+        <p className="font-normal font-secondary lg:text-[39px] lg:mt-[128px] mt-[80px] lg:mb-[118px] mb-[70px] text-[24px]">
           Orebi is one of the world’s leading ecommerce brands and is
           internationally recognized for celebrating the essence of classic
           Worldwide cool looking style.
         </p>
-        <Flex className="flex gap-x-10">
+        <Flex className="flex flex-col gap-x-10 lg:flex-row gap-y-5 lg:gap-y-0">
           <AboutCard
             title="Our Vision"
             details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an   printer took a galley of type and scrambled it to make a type specimen book."
