@@ -13,7 +13,7 @@ const About = () => {
         <Breadcrumbs
           link1="/"
           value1="home"
-          link2="/about"
+          link2="/{window.location.pathname.split('/')[1]}"
           value2={window.location.pathname.split("/")[1]}
         />
         <Flex className="flex items-center gap-x-5 lg:mt-[147px] mt-[80px]">
