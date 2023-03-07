@@ -5,6 +5,7 @@ import Flex from "../components/layouts/Flex";
 import Option from "../components/layouts/Option";
 import Pagination from "../components/layouts/Pagination";
 import PaginationFilter from "../components/layouts/PaginationFilter";
+import SideBar from "../components/SideBar";
 
 
 const Shop = () => {
@@ -22,7 +23,9 @@ const Shop = () => {
           value2={window.location.pathname.split("/")[1]}
         />
         <Flex className="flex gap-x-10 sm:mt-[130px] mt-[80px]">
-          <div className="bg-red-500 w-[25%]">asdasd</div>
+          <div className="bg-red-500 w-[25%]">
+            <SideBar/>
+          </div>
           <div className=" w-[75%] relative">
             <div className="flex flex-col sm:flex-row sm:gap-x-10 sm:gap-y-0 gap-y-3 sm:mb-16 mb-3 font-secondary font-normal text-base text-[#767676] capitalize justify-end ">
               <PaginationFilter
