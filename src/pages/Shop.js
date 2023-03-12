@@ -23,7 +23,7 @@ const Shop = () => {
           value2={window.location.pathname.split("/")[1]}
         />
         <Flex className="flex gap-x-10 sm:mt-[130px] mt-[80px]">
-          <div className="bg-red-500 w-[25%]">
+          <div className=" w-[25%]">
             <LeftSideBar/>
           </div>
           <div className=" w-[75%] relative">
