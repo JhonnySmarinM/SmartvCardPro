@@ -3,7 +3,7 @@ import InnerSideBar from "./InnerSideBar";
 import Title from "./layouts/Title";
 import { RxTriangleUp, RxTriangleDown } from "react-icons/rx";
 import SubText from "./layouts/SubText";
-const SideBar = ({ title, showDrop }) => {
+const SideBar = ({ title, showDrop, data }) => {
   const [show, setShow] = useState(true);
   const [drop, setDrop] = useState(showDrop);
   return (
@@ -23,20 +23,18 @@ const SideBar = ({ title, showDrop }) => {
       )}
       {show && (
         <>
-          <InnerSideBar title="Category 1" showSubDrop={false} color="red"></InnerSideBar>
-          <InnerSideBar title="Category 2" showSubDrop={true}>
-            <SubText title="subcategory 1" />
-            <SubText title="subcategory 2" />
-            <SubText title="subcategory 3" />
-            <SubText title="subcategory 4" />
-          </InnerSideBar>
-          <InnerSideBar title="Category 3" showSubDrop={false} color="red"></InnerSideBar>
-          <InnerSideBar title="Category 4" showSubDrop={true}>
-            <SubText title="subcategory 1" />
-            <SubText title="subcategory 2" />
-            <SubText title="subcategory 3" />
-            <SubText title="subcategory 4" />
-          </InnerSideBar>
+          {data.map((item) => (
+            <InnerSideBar
+              title={item.name}
+              showSubDrop={item.hasOwnProperty("subCategory") ? true : false}
+              color={item.hasOwnProperty("colorCode") && item.colorCode}
+            >
+              {item.hasOwnProperty("subCategory") &&
+                item.subCategory.map((subItem) => (
+                  <SubText title={subItem.name} />
+                ))}
+            </InnerSideBar>
+          ))}
         </>
       )}
     </section>
