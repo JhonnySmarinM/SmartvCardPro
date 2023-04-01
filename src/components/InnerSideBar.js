@@ -1,5 +1,4 @@
-import React, { Children, useState } from "react";
-import Title from "./layouts/Title";
+import React, { useState } from "react";
 import { HiPlusSm } from "react-icons/hi";
 const InnerSideBar = ({ title, showSubDrop, children ,color}) => {
   const [show, setShow] = useState(false);
@@ -27,7 +26,7 @@ const InnerSideBar = ({ title, showSubDrop, children ,color}) => {
           <p className="text-base">
             {color && (
               <span
-                className="w-3 h-3 mr-3 rounded-full inline-block "
+                className="inline-block w-3 h-3 mr-3 rounded-full "
                 style={{ background: `${color}` }}
               ></span>
             )}

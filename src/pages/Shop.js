@@ -12,7 +12,7 @@ import { useRef } from "react";
 
 const Shop = () => {
   const [pageShow, setPageShow] = useState(12);
-  const [sideBarShow, setSideBarShow] = useState(false);
+  const [sideBarShow, setSideBarShow] = useState(true);
   const filterOnRef = useRef();
   const filterOffRef = useRef();
 
@@ -28,22 +28,22 @@ const Shop = () => {
       }
     }
     resize();
-    window.addEventListener("resize", resize);
-    document.body.addEventListener("click", (e) => {
-      if (filterOnRef.current.contains(e.target)) {
-        setSideBarShow(true);
-      } else{
-        setSideBarShow(false);
-      }
-      // else if (e.target.parentElement == filterOffRef.current) {
-      //   setSideBarShow(true);
-      // }else{
-      //   setSideBarShow(false);
-      // }
-      // if (e.target.parentElement == filterOffRef.current) {
-      //   console.log("dfdf");
-      // }
-    });
+    // window.addEventListener("resize", resize);
+    // document.body.addEventListener("click", (e) => {
+    //   if (filterOnRef.current.contains(e.target)) {
+    //     setSideBarShow(true);
+    //   } else {
+    //     setSideBarShow(false);
+    //   }
+    //   // else if (e.target.parentElement == filterOffRef.current) {
+    //   //   setSideBarShow(true);
+    //   // }else{
+    //   //   setSideBarShow(false);
+    //   // }
+    //   // if (e.target.parentElement == filterOffRef.current) {
+    //   //   console.log("dfdf");
+    //   // }
+    // });
   }, [sideBarShow]);
   return (
     <section className="sm:mt-[124px] mt-[50px]">
