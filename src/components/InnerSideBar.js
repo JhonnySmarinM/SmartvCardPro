@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { HiPlusSm } from "react-icons/hi";
 const InnerSideBar = ({ title, showSubDrop, children ,color}) => {
   const [show, setShow] = useState(false);
-  const [drop, setDrop] = useState(showSubDrop);
   return (
     <section>
-      {drop ? (
+      {showSubDrop ? (
         <div
           onClick={() => setShow(!show)}
           className={
