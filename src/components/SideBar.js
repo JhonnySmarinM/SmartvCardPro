@@ -5,10 +5,9 @@ import { RxTriangleUp, RxTriangleDown } from "react-icons/rx";
 import SubText from "./layouts/SubText";
 const SideBar = ({ title, showDrop, data }) => {
   const [show, setShow] = useState(true);
-  const [drop, setDrop] = useState(showDrop);
   return (
     <section className="mb-14">
-      {drop ? (
+      {showDrop ? (
         <div
           onClick={() => setShow(!show)}
           className="flex items-center justify-between cursor-pointer "
