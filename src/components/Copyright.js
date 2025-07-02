@@ -30,7 +30,7 @@ const Copyright = () => {
           </div>
           <div>
             <h6 className="font-secondary sm:text-sm font-normal text-[#6D6D6D] text-[12px] sm:mt-0 mt-2 ">
-              {date} Orebi Minimal eCommerce Figma Template by Adveits
+              {date} apopttosis - Pines de madera inspirados en metal y rock
             </h6>
           </div>
         </Flex>

@@ -10,20 +10,20 @@ const AdditionalInfo = () => {
       <Container>
         <Flex className="flex items-center justify-between ">
           <div className="flex items-center sm:gap-4 gap-1 w-1/3 font-secondary font-normal text-[10px] sm:w-1/4 sm:text-base">
-            <p>2</p>
-            <h5>Two years warranty</h5>
+            <p>🎸</p>
+            <h5>Garantía de calidad en cada pin</h5>
           </div>
           <div className="flex items-center w-1/3  sm:w-1/4 sm:gap-4 gap-1 font-secondary font-normal text-[10px] sm:text-base">
             <p>
               <MdLocalShipping />
             </p>
-            <h5>Free shipping</h5>
+            <h5>Envío gratis en pedidos seleccionados</h5>
           </div>
           <div className="flex items-center w-1/3  sm:w-1/4 sm:gap-4  gap-1 font-secondary font-normal text-[10px] sm:text-base">
             <p>
               <FaUndoAlt />
             </p>
-            <h5>Return policy in 30 days</h5>
+            <h5>Devoluciones fáciles en 30 días</h5>
           </div>
         </Flex>
       </Container>

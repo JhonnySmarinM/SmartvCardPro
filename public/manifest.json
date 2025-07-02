@@ -1,0 +1,16 @@
+{
+  "short_name": "apopttosis",
+  "name": "apopttosis - Pines de madera",
+  "icons": [
+    {
+      "src": "assets/logo.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "Tienda de pines de madera inspirados en la cultura metal y rock."
+} 

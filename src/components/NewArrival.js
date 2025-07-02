@@ -59,45 +59,56 @@ const NewArrival = () => {
   return (
     <section className="mt-[128px] ">
       <Container>
-        <Title title="New Arrival" className="mb-10 text-[39px]" />
+        <Title title="Nuevos lanzamientos" className="mb-10 text-[39px]" />
         <Slider {...settings}>
           <div className="sm:max-w-[90%] ">
             <Link>
               <Product
-                src="./assets/product1.webp"
+                src="./assets/apop1.jpg"
                 badge={false}
-                price="44.00"
-                category="black"
-                productTitle="Basic Crew Neck Tee"
+                price="99.00"
+                category="metal"
+                productTitle="Pin Cruz Invertida"
               />
             </Link>
           </div>
           <div className="sm:max-w-[90%] ">
             <Link>
               <Product
-                src="./assets/product2.webp"
+                src="./assets/apop2.jpg"
                 badge={true}
-                price="44.00"
-                category="black"
-                productTitle="Basic Crew Neck Tee"
+                price="105.00"
+                category="rock"
+                productTitle="Pin Rayo"
               />
             </Link>
           </div>
           <div className="sm:max-w-[90%]">
             <Link>
               <Product
-                src="./assets/product3.webp"
+                src="./assets/apop4.jpg"
                 badge={false}
-                price="44.00"
-                category="black"
-                productTitle="Basic Crew Neck Tee"
+                price="115.00"
+                category="metal"
+                productTitle="Pin Murciélago"
               />
             </Link>
           </div>
           <div className="sm:max-w-[90%]">
             <Link>
               <Product
-                src="./assets/product4.webp"
+                src="./assets/apop1.jpg"
+                badge={true}
+                price="120.00"
+                category="rock"
+                productTitle="Pin Guitarra Eléctrica"
+              />
+            </Link>
+          </div>
+          <div className="sm:max-w-[90%] ">
+            <Link>
+              <Product
+                src="./assets/apop2.jpg"
                 badge={true}
                 price="44.00"
                 category="black"
@@ -108,18 +119,7 @@ const NewArrival = () => {
           <div className="sm:max-w-[90%] ">
             <Link>
               <Product
-                src="./assets/product4.webp"
-                badge={true}
-                price="44.00"
-                category="black"
-                productTitle="Basic Crew Neck Tee"
-              />
-            </Link>
-          </div>
-          <div className="sm:max-w-[90%] ">
-            <Link>
-              <Product
-                src="./assets/product4.webp"
+                src="./assets/apop4.jpg"
                 badge={true}
                 price="44.00"
                 category="black"

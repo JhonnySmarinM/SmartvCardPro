@@ -50,7 +50,7 @@ const Shop = () => {
       <Container>
         <Breadcrumbs
           link1="/"
-          value1="home"
+          value1="inicio"
           link2="/{window.location.pathname.split('/')[1]}"
           value2={window.location.pathname.split("/")[1]}
         />
@@ -64,7 +64,7 @@ const Shop = () => {
                 className="flex items-center p-2.5 text-white bg-black md:hidden cursor-pointer mb-2"
                 onClick={() => setSideBarShow(false)}
               >
-                Close Filter <RiFilterOffFill />
+                Cerrar Filtros <RiFilterOffFill />
               </p>
               <LeftSideBar />
             </div>
@@ -76,19 +76,19 @@ const Shop = () => {
                 onClick={() => setSideBarShow(true)}
                 ref={filterOnRef}
               >
-                Filter <MdFilterAlt />
+                Filtros <MdFilterAlt />
               </p>
               <PaginationFilter
-                title="short by:"
+                title="ordenar por:"
                 id="shortBy"
                 className="w-[239]"
               >
-                <Option option="featured" value="featured" />
-                <Option option="price high to low" value="price high to low" />
-                <Option option="price low to high" value="price low to high" />
+                <Option option="destacados" value="featured" />
+                <Option option="precio mayor a menor" value="price high to low" />
+                <Option option="precio menor a mayor" value="price low to high" />
               </PaginationFilter>
               <PaginationFilter
-                title="show:"
+                title="mostrar:"
                 id="show"
                 className="w-[139]"
                 onChange={handleChange}

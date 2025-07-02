@@ -12,7 +12,7 @@ const About = () => {
       <Container>
         <Breadcrumbs
           link1="/"
-          value1="home"
+          value1="inicio"
           link2="/{window.location.pathname.split('/')[1]}"
           value2={window.location.pathname.split("/")[1]}
         />
@@ -37,9 +37,7 @@ const About = () => {
           </Link>
         </Flex>
         <p className="font-normal font-secondary lg:text-[39px] lg:mt-[128px] mt-[80px] lg:mb-[118px] mb-[70px] text-[24px]">
-          Orebi is one of the world’s leading ecommerce brands and is
-          internationally recognized for celebrating the essence of classic
-          Worldwide cool looking style.
+          apopttosis es una tienda dedicada a la venta de pines de madera inspirados en la cultura del metal y el rock. Nuestros productos celebran la autenticidad y el arte oscuro, fusionando la pasión musical con la artesanía única.
         </p>
         <Flex className="flex flex-col gap-x-10 lg:flex-row gap-y-5 lg:gap-y-0">
           <AboutCard

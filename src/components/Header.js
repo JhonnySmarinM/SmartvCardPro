@@ -38,9 +38,9 @@ const Header = () => {
     });
   }, [categoryShow, userShow, cartShow]);
   return (
-    <header className="bg-[#F5F5F3]">
+    <header className="bg-fondoClaro py-8 shadow-lg">
       <Container>
-        <Flex className="flex items-center justify-between">
+        <Flex className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="lg:w-[160px] w-[80px]">
             <Dropdown
               className="relative flex items-center justify-start gap-3 z-50"
@@ -88,12 +88,12 @@ const Header = () => {
           </div>
           <div className="lg:w-[601px] w-[550px] relative lg:mr-0 mr-2">
             <Search
-              className="w-full px-5 py-4 bg-white placeholder:font-secondary placeholder:font-normal placeholder:text-sm placeholder:text-[#C4C4C4] capitalize font-secondary font-normal text-sm outline-[#DAC4F6]"
-              placeholder="Search Products"
+              className="w-full px-8 py-5 bg-white rounded-lg border-2 border-acento text-lg placeholder:font-secondary placeholder:font-normal placeholder:text-base placeholder:text-[#C4C4C4] capitalize font-secondary font-normal outline-acento shadow-lg"
+              placeholder="Buscar productos..."
               id="search"
             />
             <label htmlFor="search">
-              <FaSearch className="absolute cursor-pointer right-4 top-4" />
+              <FaSearch className="absolute cursor-pointer right-6 top-5 text-2xl text-acento" />
             </label>
           </div>
           <div className="w-[160px]">
@@ -123,9 +123,9 @@ const Header = () => {
                 )}
               </Dropdown>
               <Dropdown className="relative z-50" dropRef={cartRef}>
-                <div className="w-1/3 cursor-pointer">
+                <div className="w-1/3 cursor-pointer flex justify-center items-center">
                   <p>
-                    <FaShoppingCart />
+                    <FaShoppingCart className="text-3xl text-acento drop-shadow-lg" />
                   </p>
                 </div>
                 {cartShow && (

@@ -13,7 +13,7 @@ const Advertise = () => {
             <Link to="#">
               <Image
                 className="block"
-                imgSrc="./assets/add1.webp"
+                imgSrc="./assets/apop1.jpg"
                 imgAlt="add1"
               />
             </Link>
@@ -22,14 +22,14 @@ const Advertise = () => {
             <Link to="#">
               <Image
                 className="inline-block"
-                imgSrc="./assets/add2.webp"
+                imgSrc="./assets/apop2.jpg"
                 imgAlt="add1"
               />
             </Link>
             <Link to="#">
               <Image
                 className="inline-block"
-                imgSrc="./assets/add3.webp"
+                imgSrc="./assets/apop4.jpg"
                 imgAlt="add1"
               />
             </Link>

@@ -7,7 +7,7 @@ import NavItem from "./layouts/NavItem";
 
 const Footer = () => {
   return (
-    <footer className="py-14 bg-[#F5F5F3] sm:mt-36 mt-28">
+    <footer className="py-14 bg-fondo text-texto sm:mt-36 mt-28">
       <Container>
         <Flex className="flex flex-wrap gap-8 lg:gap-36">
           <div>
@@ -15,14 +15,14 @@ const Footer = () => {
               className="capitalize font-bold font-secondary text-[#262626] text-base mb-4
             "
             >
-              menu
+              menú
             </h5>
             <NavItem className="font-secondary font-normal text-sm text-[#6D6D6D]">
               <List className="mb-2" itemName="Home" link="/" />
-              <List className="mb-2" itemName="Shop" link="/products" />
-              <List className="mb-2" itemName="About" link="/about" />
-              <List className="mb-2" itemName="Contact" link="/contact" />
-              <List className="mb-2" itemName="Journal" link="/journal" />
+              <List className="mb-2" itemName="Tienda" link="/products" />
+              <List className="mb-2" itemName="Sobre nosotros" link="/about" />
+              <List className="mb-2" itemName="Contacto" link="/contact" />
+              <List className="mb-2" itemName="Blog" link="/journal" />
             </NavItem>
           </div>
           <div>
@@ -30,7 +30,7 @@ const Footer = () => {
               className="capitalize font-bold font-secondary text-[#262626] text-base mb-4
             "
             >
-              SHOP
+              TIENDA
             </h5>
             <NavItem className="font-secondary font-normal text-sm text-[#6D6D6D]">
               <List className="mb-2" itemName="Category 1" link="/Category" />
@@ -45,30 +45,26 @@ const Footer = () => {
               className="capitalize font-bold font-secondary text-[#262626] text-base mb-4
             "
             >
-              HELP
+              AYUDA
             </h5>
             <NavItem className="font-secondary font-normal text-sm text-[#6D6D6D]">
               <List
                 className="mb-2"
-                itemName="Privacy Policy"
+                itemName="Política de Privacidad"
                 link="/Privacy Policy"
               />
               <List
                 className="mb-2"
-                itemName="Terms & Conditions"
+                itemName="Términos y Condiciones"
                 link="/Terms & Conditions"
               />
               <List
                 className="mb-2"
-                itemName="Special E-shop"
+                itemName="Tienda Especial"
                 link="/Special E-shop"
               />
-              <List className="mb-2" itemName="Shipping" link="/Shipping" />
-              <List
-                className="mb-2"
-                itemName="Secure Payments"
-                link="/Secure Payments"
-              />
+              <List className="mb-2" itemName="Envíos" link="/Shipping" />
+              <List className="mb-2" itemName="Pagos Seguros" link="/Secure Payments" />
             </NavItem>
           </div>
           <div className="font-bold font-secondary text-[#262626] text-base">
@@ -83,7 +79,7 @@ const Footer = () => {
             </h6>
           </div>
           <div>
-            <Image imgSrc="assets/footer_logo.webp" imgAlt="footer_logo"/>
+            <Image imgSrc="assets/logo.webp" imgAlt="logo apopttosis" className="w-20 h-auto max-h-14 mx-auto"/>
           </div>
         </Flex>
       </Container>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-fondo text-texto;
+}
+
 .active{
     color: #262626 !important;
     font-weight: bold;

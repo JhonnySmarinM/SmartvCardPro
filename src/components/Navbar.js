@@ -20,11 +20,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-fondo text-texto">
       <Container>
         <Flex className="lg:flex">
           <div className="lg:w-1/2">
-            <Image imgSrc="assets/logo.webp" />
+            <Image imgSrc="assets/logo.webp" className="w-24 h-auto max-h-16" />
           </div>
           <div className="lg:w-1/2">
             <FaBars

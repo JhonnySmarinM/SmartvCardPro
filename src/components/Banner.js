@@ -55,18 +55,18 @@ const Banner = () => {
   return (
     <Slider {...settings}>
       <Link to="#">
-        <div>
-          <Image imgSrc="./assets/banner.webp" imgAlt="banner" />
+        <div className="flex justify-center items-center w-full h-80 bg-transparent">
+          <Image imgSrc="./assets/apop1.jpg" imgAlt="banner" className="w-96 h-auto max-h-[32rem] object-contain" />
         </div>
       </Link>
       <Link to="#">
-        <div>
-          <Image imgSrc="./assets/banner.webp" imgAlt="banner" />
+        <div className="flex justify-center items-center w-full h-80 bg-transparent">
+          <Image imgSrc="./assets/apop1.jpg" imgAlt="banner" className="w-96 h-auto max-h-[32rem] object-contain" />
         </div>
       </Link>
       <Link to="#">
-        <div>
-          <Image imgSrc="./assets/banner.webp" imgAlt="banner" />
+        <div className="flex justify-center items-center w-full h-80 bg-transparent">
+          <Image imgSrc="./assets/apop1.jpg" imgAlt="banner" className="w-96 h-auto max-h-[32rem] object-contain" />
         </div>
       </Link>
     </Slider>
