@@ -1,27 +1,45 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  createRoutesFromElements,
-} from "react-router-dom";
-import RootLayout from "./components/layouts/RootLayout";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import CardEditor from './pages/CardEditor';
+import QRGenerator from './pages/QRGenerator';
+import EmailSignature from './pages/EmailSignature';
+import CardPreview from './pages/CardPreview';
+import Templates from './pages/Templates';
+import Settings from './pages/Settings';
+import './index.css';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
-      <Route path="/products" element={<Shop />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contacts" element={<Contact />} />
-    </Route>
-  )
-);
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-50">
+        <Navbar />
+        <main className="container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/editor" element={<CardEditor />} />
+            <Route path="/qr-generator" element={<QRGenerator />} />
+            <Route path="/email-signature" element={<EmailSignature />} />
+            <Route path="/preview/:cardId" element={<CardPreview />} />
+            <Route path="/templates" element={<Templates />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </main>
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+            },
+          }}
+        />
+      </div>
+    </Router>
+  );
 }
 
 export default App;
