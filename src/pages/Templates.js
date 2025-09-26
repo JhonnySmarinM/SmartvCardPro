@@ -46,12 +46,22 @@ const Templates = () => {
     {
       name: 'Profesionales',
       icon: Star,
-      templates: ['modern', 'classic']
+      templates: ['modern', 'classic', 'corporate', 'elegant']
     },
     {
       name: 'Creativos',
       icon: Sparkles,
-      templates: ['creative', 'minimal']
+      templates: ['creative', 'minimal', 'vibrant', 'pastel']
+    },
+    {
+      name: 'Temas Especiales',
+      icon: Zap,
+      templates: ['dark', 'tech', 'neon', 'monochrome']
+    },
+    {
+      name: 'Estilos Únicos',
+      icon: Palette,
+      templates: ['gradient', 'nature', 'luxury', 'ocean']
     }
   ];
 
@@ -61,11 +71,16 @@ const Templates = () => {
 
     const { design } = template;
     
+    // Manejar gradientes y fondos especiales
+    const backgroundStyle = design.backgroundColor.includes('gradient') 
+      ? { background: design.backgroundColor }
+      : { backgroundColor: design.backgroundColor };
+    
     return (
       <div 
-        className="w-full h-48 rounded-lg p-4 flex flex-col justify-center items-center"
+        className="w-full h-48 rounded-lg p-4 flex flex-col justify-center items-center relative overflow-hidden"
         style={{
-          backgroundColor: design.backgroundColor,
+          ...backgroundStyle,
           color: design.textColor,
           borderRadius: design.borderRadius,
           fontFamily: design.fontFamily,
@@ -75,17 +90,40 @@ const Templates = () => {
                      '0 10px 25px rgba(0,0,0,0.15)',
         }}
       >
-        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-3">
+        {/* Efectos especiales para templates únicos */}
+        {templateKey === 'neon' && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent animate-pulse"></div>
+        )}
+        {templateKey === 'tech' && (
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10"></div>
+        )}
+        {templateKey === 'luxury' && (
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-transparent to-amber-500/20"></div>
+        )}
+        
+        <div 
+          className="w-16 h-16 rounded-full flex items-center justify-center mb-3 relative z-10"
+          style={{
+            background: templateKey === 'gradient' 
+              ? 'linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%)'
+              : templateKey === 'neon'
+              ? 'linear-gradient(135deg, #00FF88 0%, #FF0080 100%)'
+              : `linear-gradient(135deg, ${design.primaryColor} 0%, ${design.secondaryColor} 100%)`
+          }}
+        >
           <span className="text-white font-bold text-lg">DC</span>
         </div>
         <h3 
-          className="text-lg font-bold mb-1"
-          style={{ color: design.primaryColor }}
+          className="text-lg font-bold mb-1 relative z-10"
+          style={{ 
+            color: templateKey === 'neon' ? '#00FF88' : design.primaryColor,
+            textShadow: templateKey === 'neon' ? '0 0 10px #00FF88' : 'none'
+          }}
         >
           Tu Nombre
         </h3>
-        <p className="text-sm opacity-80">Tu Cargo</p>
-        <p className="text-sm opacity-80">Tu Empresa</p>
+        <p className="text-sm opacity-80 relative z-10">Tu Cargo</p>
+        <p className="text-sm opacity-80 relative z-10">Tu Empresa</p>
       </div>
     );
   };

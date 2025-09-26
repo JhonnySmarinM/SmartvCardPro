@@ -9,7 +9,7 @@ const InputField = (props) => {
         {props.label}
       </label>
       <props.as
-        className={`block text-sm font-normal py-4 w-full md:w-[780px] outline-none border-b-2 border-solid placeholder:text-[#767676] text-[#262626] ${props.className}`}
+        className={`block text-sm font-normal py-4 w-full md:w-[780px] outline-none border-b-2 border-solid placeholder:text-[#767676] text-black ${props.className}`}
         placeholder={props.placeholder}
         type={props.type}
       />

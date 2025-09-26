@@ -18,6 +18,40 @@ import toast from 'react-hot-toast';
 const Dashboard = () => {
   const { cards, deleteCard, setCurrentCard } = useCardStore();
 
+  const checkAuthAndRedirect = (path) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      toast.error('Debes iniciar sesión para acceder a esta función');
+      window.location.href = '/auth';
+      return false;
+    }
+    return true;
+  };
+
+  const isAuthenticated = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return false;
+    
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const currentTime = Date.now() / 1000;
+      
+      // Extender el tiempo de sesión: si el token expira en menos de 24 horas, considerarlo válido
+      const timeUntilExpiry = payload.exp - currentTime;
+      const twentyFourHours = 24 * 60 * 60; // 24 horas en segundos
+      
+      return payload.exp && timeUntilExpiry > -twentyFourHours;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    toast.success('Sesión cerrada correctamente');
+    window.location.href = '/';
+  };
+
   const handleDeleteCard = (cardId, cardName) => {
     if (window.confirm(`¿Estás seguro de que quieres eliminar la tarjeta "${cardName}"?`)) {
       deleteCard(cardId);
@@ -62,6 +96,24 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-8">
+      {/* Auth Header - Solo visible si está autenticado */}
+      {isAuthenticated() && (
+        <div className="flex justify-end gap-4 mb-4">
+          <button
+            onClick={() => window.location.href = '/admin'}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium shadow-md hover:shadow-lg"
+          >
+            Admin
+          </button>
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors font-medium shadow-md hover:shadow-lg"
+          >
+            Out
+          </button>
+        </div>
+      )}
+
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -70,13 +122,13 @@ const Dashboard = () => {
             Gestiona tus tarjetas de visita digitales
           </p>
         </div>
-        <Link
-          to="/editor"
+        <button
+          onClick={() => checkAuthAndRedirect('/editor') && (window.location.href = '/editor')}
           className="mt-4 sm:mt-0 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors"
         >
           <Plus size={20} />
           <span>Nueva Tarjeta</span>
-        </Link>
+        </button>
       </div>
 
       {/* Stats Cards */}
@@ -147,13 +199,13 @@ const Dashboard = () => {
             <p className="text-gray-600 mb-6">
               Crea tu primera tarjeta de visita digital para empezar
             </p>
-            <Link
-              to="/editor"
+            <button
+              onClick={() => checkAuthAndRedirect('/editor') && (window.location.href = '/editor')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg inline-flex items-center space-x-2 transition-colors"
             >
               <Plus size={20} />
               <span>Crear Primera Tarjeta</span>
-            </Link>
+            </button>
           </div>
         ) : (
           <div className="divide-y divide-gray-200">
@@ -204,14 +256,18 @@ const Dashboard = () => {
                       <Share2 size={18} />
                     </button>
                     
-                    <Link
-                      to="/editor"
-                      onClick={() => setCurrentCard(card.id)}
+                    <button
+                      onClick={() => {
+                        if (checkAuthAndRedirect('/editor')) {
+                          setCurrentCard(card.id);
+                          window.location.href = '/editor';
+                        }
+                      }}
                       className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                       title="Editar"
                     >
                       <Edit3 size={18} />
-                    </Link>
+                    </button>
                     
                     <button
                       onClick={() => handleDeleteCard(card.id, `${card.contactData.firstName} ${card.contactData.lastName}`)}
@@ -228,50 +284,6 @@ const Dashboard = () => {
         )}
       </div>
 
-      {/* Quick Actions */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">Acciones Rápidas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Link
-            to="/qr-generator"
-            className="p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors"
-          >
-            <div className="flex items-center space-x-3">
-              <QrCode className="w-6 h-6 text-blue-600" />
-              <div>
-                <h3 className="font-medium text-gray-900">Generar QR</h3>
-                <p className="text-sm text-gray-600">Crear códigos QR para tus tarjetas</p>
-              </div>
-            </div>
-          </Link>
-          
-          <Link
-            to="/email-signature"
-            className="p-4 border border-gray-200 rounded-lg hover:border-orange-300 hover:bg-orange-50 transition-colors"
-          >
-            <div className="flex items-center space-x-3">
-              <Mail className="w-6 h-6 text-orange-600" />
-              <div>
-                <h3 className="font-medium text-gray-900">Firma de Email</h3>
-                <p className="text-sm text-gray-600">Crear firmas profesionales</p>
-              </div>
-            </div>
-          </Link>
-          
-          <Link
-            to="/templates"
-            className="p-4 border border-gray-200 rounded-lg hover:border-purple-300 hover:bg-purple-50 transition-colors"
-          >
-            <div className="flex items-center space-x-3">
-              <TrendingUp className="w-6 h-6 text-purple-600" />
-              <div>
-                <h3 className="font-medium text-gray-900">Plantillas</h3>
-                <p className="text-sm text-gray-600">Explorar diseños disponibles</p>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 };

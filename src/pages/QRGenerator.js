@@ -198,7 +198,7 @@ const QRGenerator = () => {
                 <select
                   value={qrConfig.level}
                   onChange={(e) => setQrConfig(prev => ({ ...prev, level: e.target.value }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                 >
                   <option value="L">Bajo (7%)</option>
                   <option value="M">Medio (15%)</option>

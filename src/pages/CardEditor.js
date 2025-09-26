@@ -215,7 +215,7 @@ const CardEditor = () => {
                           type="text"
                           value={contactData.firstName}
                           onChange={(e) => setContactData(prev => ({ ...prev, firstName: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="Tu nombre"
                         />
                       </div>
@@ -227,7 +227,7 @@ const CardEditor = () => {
                           type="text"
                           value={contactData.lastName}
                           onChange={(e) => setContactData(prev => ({ ...prev, lastName: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="Tu apellido"
                         />
                       </div>
@@ -246,7 +246,7 @@ const CardEditor = () => {
                           type="text"
                           value={contactData.company}
                           onChange={(e) => setContactData(prev => ({ ...prev, company: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="Nombre de la empresa"
                         />
                       </div>
@@ -258,7 +258,7 @@ const CardEditor = () => {
                           type="text"
                           value={contactData.jobTitle}
                           onChange={(e) => setContactData(prev => ({ ...prev, jobTitle: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="Tu cargo o título"
                         />
                       </div>
@@ -277,7 +277,7 @@ const CardEditor = () => {
                           type="email"
                           value={contactData.email}
                           onChange={(e) => setContactData(prev => ({ ...prev, email: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="tu@email.com"
                         />
                       </div>
@@ -289,7 +289,7 @@ const CardEditor = () => {
                           type="tel"
                           value={contactData.phone}
                           onChange={(e) => setContactData(prev => ({ ...prev, phone: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="+1 234 567 890"
                         />
                       </div>
@@ -301,7 +301,7 @@ const CardEditor = () => {
                           type="url"
                           value={contactData.website}
                           onChange={(e) => setContactData(prev => ({ ...prev, website: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="https://tuwebsite.com"
                         />
                       </div>
@@ -313,7 +313,7 @@ const CardEditor = () => {
                           type="text"
                           value={contactData.address}
                           onChange={(e) => setContactData(prev => ({ ...prev, address: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="Tu dirección"
                         />
                       </div>
@@ -332,7 +332,7 @@ const CardEditor = () => {
                           type="url"
                           value={contactData.linkedin}
                           onChange={(e) => setContactData(prev => ({ ...prev, linkedin: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="https://linkedin.com/in/tu-perfil"
                         />
                       </div>
@@ -344,7 +344,7 @@ const CardEditor = () => {
                           type="url"
                           value={contactData.twitter}
                           onChange={(e) => setContactData(prev => ({ ...prev, twitter: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="https://twitter.com/tu-usuario"
                         />
                       </div>
@@ -356,7 +356,7 @@ const CardEditor = () => {
                           type="url"
                           value={contactData.instagram}
                           onChange={(e) => setContactData(prev => ({ ...prev, instagram: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="https://instagram.com/tu-usuario"
                         />
                       </div>
@@ -368,7 +368,7 @@ const CardEditor = () => {
                           type="tel"
                           value={contactData.whatsapp}
                           onChange={(e) => setContactData(prev => ({ ...prev, whatsapp: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                           placeholder="+1 234 567 890"
                         />
                       </div>
@@ -413,22 +413,24 @@ const CardEditor = () => {
                               </button>
                             </div>
                           ) : (
-                            <div>
-                              <Upload className="w-8 h-8 mx-auto text-gray-400 mb-2" />
-                              <input
-                                type="file"
-                                accept="image/*"
-                                onChange={(e) => e.target.files[0] && handleImageUpload('photo', e.target.files[0])}
-                                className="hidden"
-                                id="photo-upload"
-                              />
-                              <label
-                                htmlFor="photo-upload"
-                                className="text-blue-600 hover:text-blue-700 cursor-pointer"
-                              >
-                                Subir foto
-                              </label>
-                            </div>
+                            <label
+                              htmlFor="photo-upload"
+                              className="block cursor-pointer hover:bg-gray-50 transition-colors"
+                            >
+                              <div>
+                                <Upload className="w-8 h-8 mx-auto text-gray-400 mb-2" />
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={(e) => e.target.files[0] && handleImageUpload('photo', e.target.files[0])}
+                                  className="hidden"
+                                  id="photo-upload"
+                                />
+                                <span className="text-blue-600 hover:text-blue-700">
+                                  Subir foto
+                                </span>
+                              </div>
+                            </label>
                           )}
                         </div>
                       </div>
@@ -452,22 +454,24 @@ const CardEditor = () => {
                               </button>
                             </div>
                           ) : (
-                            <div>
-                              <Upload className="w-8 h-8 mx-auto text-gray-400 mb-2" />
-                              <input
-                                type="file"
-                                accept="image/*"
-                                onChange={(e) => e.target.files[0] && handleImageUpload('logo', e.target.files[0])}
-                                className="hidden"
-                                id="logo-upload"
-                              />
-                              <label
-                                htmlFor="logo-upload"
-                                className="text-blue-600 hover:text-blue-700 cursor-pointer"
-                              >
-                                Subir logo
-                              </label>
-                            </div>
+                            <label
+                              htmlFor="logo-upload"
+                              className="block cursor-pointer hover:bg-gray-50 transition-colors"
+                            >
+                              <div>
+                                <Upload className="w-8 h-8 mx-auto text-gray-400 mb-2" />
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={(e) => e.target.files[0] && handleImageUpload('logo', e.target.files[0])}
+                                  className="hidden"
+                                  id="logo-upload"
+                                />
+                                <span className="text-blue-600 hover:text-blue-700">
+                                  Subir logo
+                                </span>
+                              </div>
+                            </label>
                           )}
                         </div>
                       </div>
@@ -564,7 +568,7 @@ const CardEditor = () => {
                       <select
                         value={design.fontFamily}
                         onChange={(e) => setDesign(prev => ({ ...prev, fontFamily: e.target.value }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                       >
                         <option value="Inter">Inter</option>
                         <option value="Helvetica">Helvetica</option>
@@ -587,7 +591,7 @@ const CardEditor = () => {
                         <select
                           value={design.borderRadius}
                           onChange={(e) => setDesign(prev => ({ ...prev, borderRadius: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                         >
                           <option value="0px">Sin bordes</option>
                           <option value="4px">Pequeños</option>
@@ -603,7 +607,7 @@ const CardEditor = () => {
                         <select
                           value={design.shadow}
                           onChange={(e) => setDesign(prev => ({ ...prev, shadow: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                         >
                           <option value="none">Sin sombra</option>
                           <option value="light">Ligera</option>
@@ -639,13 +643,18 @@ const CardEditor = () => {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h3 className="text-lg font-medium text-gray-900 mb-4">Vista Previa</h3>
             <div 
-              className="w-full max-w-sm mx-auto border rounded-lg p-6"
+              className="w-full max-w-sm mx-auto border rounded-lg p-6 relative overflow-hidden"
               style={{
-                backgroundColor: design.backgroundColor,
+                background: design.backgroundColor.includes('gradient') 
+                  ? design.backgroundColor 
+                  : design.backgroundColor,
+                backgroundColor: design.backgroundColor.includes('gradient') 
+                  ? undefined 
+                  : design.backgroundColor,
                 color: design.textColor,
                 borderRadius: design.borderRadius,
                 fontFamily: design.fontFamily,
-                boxShadow: design.shadow === 'none' ? 'none' : 
+                boxShadow: design.shadow === 'none' ? 'none' :
                            design.shadow === 'light' ? '0 1px 3px rgba(0,0,0,0.1)' :
                            design.shadow === 'medium' ? '0 4px 6px rgba(0,0,0,0.1)' :
                            '0 10px 25px rgba(0,0,0,0.15)',
@@ -700,25 +709,163 @@ const CardEditor = () => {
               </div>
 
               {/* Social Media */}
-              {(contactData.linkedin || contactData.twitter || contactData.instagram || contactData.facebook) && (
+              {(contactData.linkedin || contactData.twitter || contactData.instagram || contactData.facebook || contactData.whatsapp) && (
                 <div className="flex justify-center space-x-4 mb-4">
                   {contactData.linkedin && <Linkedin size={20} />}
                   {contactData.twitter && <Twitter size={20} />}
                   {contactData.instagram && <Instagram size={20} />}
                   {contactData.facebook && <Facebook size={20} />}
+                  {contactData.whatsapp && <MessageCircle size={20} />}
                 </div>
               )}
 
               {/* Bio */}
               {contactData.bio && (
-                <div className="text-sm opacity-80 text-center border-t pt-4">
+                <div className="text-sm opacity-80 text-center border-t pt-4 break-words overflow-wrap-anywhere max-h-32 overflow-y-auto">
                   {contactData.bio}
+                </div>
+              )}
+
+              {/* Logo Watermark */}
+              {contactData.logo && (
+                <div className="absolute bottom-2 right-2 opacity-60">
+                  <img
+                    src={contactData.logo}
+                    alt="Logo"
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
               )}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Preview Modal */}
+      {previewMode && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between p-4 border-b">
+              <h2 className="text-xl font-semibold text-gray-900">Vista Previa Completa</h2>
+              <button
+                onClick={() => setPreviewMode(false)}
+                className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            
+            <div className="p-6">
+              <div className="max-w-2xl mx-auto">
+                <div 
+                  className="bg-white rounded-lg shadow-lg p-8 mx-auto relative overflow-hidden"
+                  style={{
+                    background: design.backgroundColor.includes('gradient') 
+                      ? design.backgroundColor 
+                      : design.backgroundColor,
+                    backgroundColor: design.backgroundColor.includes('gradient') 
+                      ? undefined 
+                      : design.backgroundColor,
+                    color: design.textColor,
+                    borderRadius: design.borderRadius,
+                    fontFamily: design.fontFamily,
+                    boxShadow: design.shadow === 'none' ? 'none' :
+                               design.shadow === 'light' ? '0 1px 3px rgba(0,0,0,0.1)' :
+                               design.shadow === 'medium' ? '0 4px 6px rgba(0,0,0,0.1)' :
+                               '0 10px 25px rgba(0,0,0,0.15)',
+                  }}
+                >
+                  {/* Header */}
+                  <div className="text-center mb-8">
+                    {contactData.photo && (
+                      <img
+                        src={contactData.photo}
+                        alt={`${contactData.firstName} ${contactData.lastName}`}
+                        className="w-32 h-32 mx-auto rounded-full object-cover mb-6 border-4 border-white shadow-lg"
+                      />
+                    )}
+                    <h1 
+                      className="text-3xl font-bold mb-2"
+                      style={{ color: design.primaryColor }}
+                    >
+                      {contactData.firstName} {contactData.lastName}
+                    </h1>
+                    {contactData.jobTitle && (
+                      <p className="text-lg opacity-80 mb-1">{contactData.jobTitle}</p>
+                    )}
+                    {contactData.company && (
+                      <p className="text-lg font-semibold opacity-80">{contactData.company}</p>
+                    )}
+                  </div>
+
+                  {/* Contact Information */}
+                  <div className="space-y-4 mb-8">
+                    {contactData.email && (
+                      <div className="flex items-center space-x-3 p-3">
+                        <Mail size={20} />
+                        <span>{contactData.email}</span>
+                      </div>
+                    )}
+                    
+                    {contactData.phone && (
+                      <div className="flex items-center space-x-3 p-3">
+                        <Phone size={20} />
+                        <span>{contactData.phone}</span>
+                      </div>
+                    )}
+                    
+                    {contactData.website && (
+                      <div className="flex items-center space-x-3 p-3">
+                        <Globe size={20} />
+                        <span>{contactData.website}</span>
+                      </div>
+                    )}
+                    
+                    {contactData.address && (
+                      <div className="flex items-center space-x-3 p-3">
+                        <MapPin size={20} />
+                        <span>{contactData.address}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Social Media */}
+                  {(contactData.linkedin || contactData.twitter || contactData.instagram || contactData.facebook || contactData.whatsapp) && (
+                    <div className="mb-8">
+                      <h3 className="text-lg font-semibold mb-4 text-center">Redes Sociales</h3>
+                      <div className="flex justify-center space-x-4">
+                        {contactData.linkedin && <Linkedin size={24} />}
+                        {contactData.twitter && <Twitter size={24} />}
+                        {contactData.instagram && <Instagram size={24} />}
+                        {contactData.facebook && <Facebook size={24} />}
+                        {contactData.whatsapp && <MessageCircle size={24} />}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Bio */}
+                  {contactData.bio && (
+                    <div className="text-center border-t pt-6">
+                      <p className="text-lg leading-relaxed opacity-80 break-words overflow-wrap-anywhere max-h-48 overflow-y-auto">{contactData.bio}</p>
+                    </div>
+                  )}
+
+                  {/* Logo Watermark */}
+                  {contactData.logo && (
+                    <div className="absolute bottom-4 right-4 opacity-60">
+                      <img
+                        src={contactData.logo}
+                        alt="Logo"
+                        className="w-10 h-10 object-contain"
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

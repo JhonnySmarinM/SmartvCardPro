@@ -5,10 +5,15 @@ import {
   Download, 
   Mail, 
   ChevronLeft,
-  Smartphone
+  Smartphone,
+  PenTool,
+  Image,
+  Eye,
+  Settings
 } from 'lucide-react';
 import useCardStore from '../store/cardStore';
 import toast from 'react-hot-toast';
+import SignatureCanvas from '../components/SignatureCanvas';
 
 const EmailSignature = () => {
   const navigate = useNavigate();
@@ -20,11 +25,16 @@ const EmailSignature = () => {
     includePhoto: true,
     includeQR: true,
     includeSocial: true,
+    includeSignature: false,
     fontSize: '14px',
     fontFamily: 'Arial',
     textColor: '#333333',
     accentColor: '#3B82F6',
   });
+  
+  const [showSignatureCanvas, setShowSignatureCanvas] = useState(false);
+  const [digitalSignature, setDigitalSignature] = useState(null);
+  const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
     if (currentCard) {
@@ -37,11 +47,17 @@ const EmailSignature = () => {
     setCurrentCard(card.id);
   };
 
+  const handleSignatureSave = (signatureData) => {
+    setDigitalSignature(signatureData);
+    setSignatureConfig(prev => ({ ...prev, includeSignature: true }));
+    toast.success('Firma digital guardada');
+  };
+
   const generateSignature = () => {
     if (!selectedCard) return '';
 
     const { contactData } = selectedCard;
-    const { template, includePhoto, includeQR, includeSocial, fontSize, fontFamily, textColor, accentColor } = signatureConfig;
+    const { template, includePhoto, includeQR, includeSocial, includeSignature, fontSize, fontFamily, textColor, accentColor } = signatureConfig;
 
     let signature = '';
 
@@ -85,6 +101,13 @@ const EmailSignature = () => {
                 </a>
               </div>
             ` : ''}
+            
+            ${includeSignature && digitalSignature ? `
+              <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e5e5e5;">
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Firma:</div>
+                <img src="${digitalSignature}" alt="Firma digital" style="max-width: 200px; height: auto; border: 1px solid #e5e5e5; background: white; padding: 5px;">
+              </div>
+            ` : ''}
           </div>
         `;
         break;
@@ -108,6 +131,12 @@ const EmailSignature = () => {
             ${includeQR ? `
               <div style="font-size: 12px; color: #666;">
                 📱 <a href="${window.location.origin}/preview/${selectedCard.id}" style="color: ${accentColor}; text-decoration: none;">Ver tarjeta digital</a>
+              </div>
+            ` : ''}
+            
+            ${includeSignature && digitalSignature ? `
+              <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e5e5e5;">
+                <img src="${digitalSignature}" alt="Firma digital" style="max-width: 150px; height: auto; border: 1px solid #e5e5e5; background: white; padding: 3px;">
               </div>
             ` : ''}
           </div>
@@ -137,6 +166,13 @@ const EmailSignature = () => {
                 <a href="${window.location.origin}/preview/${selectedCard.id}" style="color: ${accentColor}; text-decoration: none; font-weight: bold;">
                   ${window.location.origin}/preview/${selectedCard.id}
                 </a>
+              </div>
+            ` : ''}
+            
+            ${includeSignature && digitalSignature ? `
+              <div style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #e5e5e5;">
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Firma:</div>
+                <img src="${digitalSignature}" alt="Firma digital" style="max-width: 180px; height: auto; border: 1px solid #e5e5e5; background: white; padding: 5px;">
               </div>
             ` : ''}
           </div>
@@ -302,6 +338,15 @@ const EmailSignature = () => {
                     />
                     <span className="ml-2 text-sm text-gray-700">Incluir redes sociales</span>
                   </label>
+                  <label className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={signatureConfig.includeSignature}
+                      onChange={(e) => setSignatureConfig(prev => ({ ...prev, includeSignature: e.target.checked }))}
+                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="ml-2 text-sm text-gray-700">Incluir firma digital</span>
+                  </label>
                 </div>
               </div>
 
@@ -314,7 +359,7 @@ const EmailSignature = () => {
                   <select
                     value={signatureConfig.fontSize}
                     onChange={(e) => setSignatureConfig(prev => ({ ...prev, fontSize: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                   >
                     <option value="12px">Pequeño (12px)</option>
                     <option value="14px">Mediano (14px)</option>
@@ -329,7 +374,7 @@ const EmailSignature = () => {
                   <select
                     value={signatureConfig.fontFamily}
                     onChange={(e) => setSignatureConfig(prev => ({ ...prev, fontFamily: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                   >
                     <option value="Arial">Arial</option>
                     <option value="Helvetica">Helvetica</option>
@@ -368,11 +413,64 @@ const EmailSignature = () => {
             </div>
           )}
 
+          {/* Digital Signature Section */}
+          {selectedCard && (
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+              <h2 className="text-lg font-medium text-gray-900 mb-4">Firma Digital</h2>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-md font-medium text-gray-900">Crear Firma</h3>
+                    <p className="text-sm text-gray-600">Dibuja tu firma digital para incluirla en emails</p>
+                  </div>
+                  <button
+                    onClick={() => setShowSignatureCanvas(true)}
+                    className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                  >
+                    <PenTool size={18} />
+                    <span>Crear Firma</span>
+                  </button>
+                </div>
+                
+                {digitalSignature && (
+                  <div className="border rounded-lg p-4 bg-gray-50">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-sm font-medium text-gray-900">Firma Actual</h4>
+                      <div className="flex space-x-2">
+                        <button
+                          onClick={() => setShowSignatureCanvas(true)}
+                          className="text-blue-600 hover:text-blue-800 text-sm"
+                        >
+                          Editar
+                        </button>
+                        <button
+                          onClick={() => {
+                            setDigitalSignature(null);
+                            setSignatureConfig(prev => ({ ...prev, includeSignature: false }));
+                          }}
+                          className="text-red-600 hover:text-red-800 text-sm"
+                        >
+                          Eliminar
+                        </button>
+                      </div>
+                    </div>
+                    <img
+                      src={digitalSignature}
+                      alt="Firma digital"
+                      className="max-w-xs h-auto border border-gray-300 bg-white p-2 rounded"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Actions */}
           {selectedCard && (
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
               <h2 className="text-lg font-medium text-gray-900 mb-4">Acciones</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <button
                   onClick={handleCopySignature}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors"
@@ -386,6 +484,13 @@ const EmailSignature = () => {
                 >
                   <Download size={18} />
                   <span>Descargar HTML</span>
+                </button>
+                <button
+                  onClick={() => setShowPreview(!showPreview)}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+                >
+                  <Eye size={18} />
+                  <span>{showPreview ? 'Ocultar' : 'Vista Previa'}</span>
                 </button>
               </div>
             </div>
@@ -425,6 +530,13 @@ const EmailSignature = () => {
           </div>
         </div>
       </div>
+
+      {/* Signature Canvas Modal */}
+      <SignatureCanvas
+        isOpen={showSignatureCanvas}
+        onClose={() => setShowSignatureCanvas(false)}
+        onSave={handleSignatureSave}
+      />
     </div>
   );
 };

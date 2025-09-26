@@ -164,7 +164,7 @@ const Settings = () => {
                     <select
                       value={localSettings.defaultTemplate}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, defaultTemplate: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                     >
                       <option value="modern">Moderno</option>
                       <option value="classic">Clásico</option>
@@ -187,7 +187,7 @@ const Settings = () => {
                     <select
                       value={localSettings.qrCodeStyle}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, qrCodeStyle: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                     >
                       <option value="default">Por defecto</option>
                       <option value="rounded">Redondeado</option>
@@ -203,7 +203,7 @@ const Settings = () => {
                     <select
                       value={localSettings.emailSignatureTemplate}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, emailSignatureTemplate: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
                     >
                       <option value="standard">Estándar</option>
                       <option value="minimal">Minimalista</option>

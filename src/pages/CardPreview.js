@@ -159,13 +159,18 @@ const CardPreview = () => {
           {/* Main Card */}
           <div className="lg:col-span-2">
             <div 
-              className="bg-white rounded-lg shadow-lg p-8"
+              className="bg-white rounded-lg shadow-lg p-8 relative overflow-hidden"
               style={{
-                backgroundColor: design.backgroundColor,
+                background: design.backgroundColor.includes('gradient') 
+                  ? design.backgroundColor 
+                  : design.backgroundColor,
+                backgroundColor: design.backgroundColor.includes('gradient') 
+                  ? undefined 
+                  : design.backgroundColor,
                 color: design.textColor,
                 borderRadius: design.borderRadius,
                 fontFamily: design.fontFamily,
-                boxShadow: design.shadow === 'none' ? 'none' : 
+                boxShadow: design.shadow === 'none' ? 'none' :
                            design.shadow === 'light' ? '0 1px 3px rgba(0,0,0,0.1)' :
                            design.shadow === 'medium' ? '0 4px 6px rgba(0,0,0,0.1)' :
                            '0 10px 25px rgba(0,0,0,0.15)',
@@ -291,7 +296,18 @@ const CardPreview = () => {
               {/* Bio */}
               {contactData.bio && (
                 <div className="text-center border-t pt-6">
-                  <p className="text-lg leading-relaxed opacity-80">{contactData.bio}</p>
+                  <p className="text-lg leading-relaxed opacity-80 break-words overflow-wrap-anywhere max-h-48 overflow-y-auto">{contactData.bio}</p>
+                </div>
+              )}
+
+              {/* Logo Watermark */}
+              {contactData.logo && (
+                <div className="absolute bottom-4 right-4 opacity-60">
+                  <img
+                    src={contactData.logo}
+                    alt="Logo"
+                    className="w-10 h-10 object-contain"
+                  />
                 </div>
               )}
             </div>

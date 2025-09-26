@@ -11,15 +11,26 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const checkAuthAndRedirect = (path) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      toast.error('Debes iniciar sesión para acceder a esta función');
+      window.location.href = '/auth';
+      return false;
+    }
+    return true;
+  };
+
   const navigation = [
     { name: 'Dashboard', href: '/', icon: Home },
     { name: 'Editor', href: '/editor', icon: Edit3 },
-    { name: 'QR Generator', href: '/qr-generator', icon: QrCode },
+    { name: 'QR Generator', href: 'https://crea-tu-qr.vercel.app/', icon: QrCode },
     { name: 'Email Signature', href: '/email-signature', icon: Mail },
     { name: 'Templates', href: '/templates', icon: Palette },
     { name: 'Settings', href: '/settings', icon: Settings },
@@ -45,6 +56,25 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => {
               const Icon = item.icon;
+              const isProtected = item.href === '/editor' || item.href === '/email-signature';
+              
+              if (isProtected) {
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => checkAuthAndRedirect(item.href) && (window.location.href = item.href)}
+                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      isActive(item.href)
+                        ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-700'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    }`}
+                  >
+                    <Icon size={18} />
+                    <span>{item.name}</span>
+                  </button>
+                );
+              }
+              
               return (
                 <Link
                   key={item.name}
@@ -64,13 +94,13 @@ const Navbar = () => {
 
           {/* Botón crear nueva tarjeta */}
           <div className="hidden md:flex items-center">
-            <Link
-              to="/editor"
+            <button
+              onClick={() => checkAuthAndRedirect('/editor') && (window.location.href = '/editor')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
             >
               <Plus size={18} />
               <span>Nueva Tarjeta</span>
-            </Link>
+            </button>
           </div>
 
           {/* Botón menú móvil */}
@@ -91,6 +121,28 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
             {navigation.map((item) => {
               const Icon = item.icon;
+              const isProtected = item.href === '/editor' || item.href === '/email-signature';
+              
+              if (isProtected) {
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      checkAuthAndRedirect(item.href) && (window.location.href = item.href);
+                    }}
+                    className={`flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium transition-colors w-full text-left ${
+                      isActive(item.href)
+                        ? 'bg-blue-50 text-blue-700'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    }`}
+                  >
+                    <Icon size={20} />
+                    <span>{item.name}</span>
+                  </button>
+                );
+              }
+              
               return (
                 <Link
                   key={item.name}
@@ -108,14 +160,16 @@ const Navbar = () => {
               );
             })}
             <div className="pt-4">
-              <Link
-                to="/editor"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  checkAuthAndRedirect('/editor') && (window.location.href = '/editor');
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors w-full"
               >
                 <Plus size={20} />
                 <span>Nueva Tarjeta</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
