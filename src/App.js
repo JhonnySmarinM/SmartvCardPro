@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import AuthGuard from './components/AuthGuard';
@@ -14,12 +14,14 @@ import Admin from './pages/Admin';
 import Auth from './pages/Auth';
 import './index.css';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const hideNavbar = location.pathname === '/admin' || location.pathname === '/auth';
+
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-50">
-        <Navbar />
-        <main className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-luxury">
+      {!hideNavbar && <Navbar />}
+      <main className="container mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/editor" element={
@@ -45,12 +47,21 @@ function App() {
           toastOptions={{
             duration: 4000,
             style: {
-              background: '#363636',
-              color: '#fff',
+              background: 'linear-gradient(135deg, #5C4033 0%, #36454F 100%)',
+              color: '#F5F1EF',
+              boxShadow: '0 10px 40px rgba(92, 64, 51, 0.3)',
+              border: '1px solid rgba(233, 30, 99, 0.2)',
             },
           }}
         />
       </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

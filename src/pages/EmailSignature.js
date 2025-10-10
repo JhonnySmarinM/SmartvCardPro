@@ -29,7 +29,7 @@ const EmailSignature = () => {
     fontSize: '14px',
     fontFamily: 'Arial',
     textColor: '#333333',
-    accentColor: '#3B82F6',
+    accentColor: '#E91E63',
   });
   
   const [showSignatureCanvas, setShowSignatureCanvas] = useState(false);
@@ -216,13 +216,13 @@ const EmailSignature = () => {
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate('/')}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-chocolate-200 hover:text-texto hover:bg-gray-100 rounded-lg transition-colors"
           >
             <ChevronLeft size={20} />
           </button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Firma de Email</h1>
-            <p className="text-gray-600">
+            <h1 className="text-3xl font-bold text-texto">Firma de Email</h1>
+            <p className="text-chocolate-200">
               Crea firmas profesionales para tus emails
             </p>
           </div>
@@ -233,15 +233,15 @@ const EmailSignature = () => {
         {/* Configuration Panel */}
         <div className="space-y-6">
           {/* Card Selection */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-lg font-medium text-gray-900 mb-4">Seleccionar Tarjeta</h2>
+          <div className="luxury-card rounded-lg shadow-sm border border-borde p-6">
+            <h2 className="text-lg font-medium text-texto mb-4">Seleccionar Tarjeta</h2>
             {cards.length === 0 ? (
               <div className="text-center py-8">
                 <Smartphone className="w-12 h-12 mx-auto text-gray-400 mb-4" />
-                <p className="text-gray-600 mb-4">No tienes tarjetas creadas</p>
+                <p className="text-chocolate-200 mb-4">No tienes tarjetas creadas</p>
                 <button
                   onClick={() => navigate('/editor')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-4 py-2 rounded-lg transition-colors"
                 >
                   Crear Primera Tarjeta
                 </button>
@@ -255,7 +255,7 @@ const EmailSignature = () => {
                     className={`w-full p-4 border-2 rounded-lg transition-colors text-left ${
                       selectedCard?.id === card.id
                         ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        : 'border-borde hover:border-gray-300'
                     }`}
                   >
                     <div className="flex items-center space-x-3">
@@ -265,10 +265,10 @@ const EmailSignature = () => {
                         </span>
                       </div>
                       <div>
-                        <h3 className="font-medium text-gray-900">
+                        <h3 className="font-medium text-texto">
                           {card.contactData.firstName} {card.contactData.lastName}
                         </h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-chocolate-200">
                           {card.contactData.jobTitle} {card.contactData.company && `en ${card.contactData.company}`}
                         </p>
                       </div>
@@ -281,8 +281,8 @@ const EmailSignature = () => {
 
           {/* Signature Configuration */}
           {selectedCard && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Configuración de la Firma</h2>
+            <div className="luxury-card rounded-lg shadow-sm border border-borde p-6">
+              <h2 className="text-lg font-medium text-texto mb-4">Configuración de la Firma</h2>
               
               {/* Template Selection */}
               <div className="mb-6">
@@ -297,11 +297,11 @@ const EmailSignature = () => {
                       className={`p-4 border-2 rounded-lg transition-colors text-left ${
                         signatureConfig.template === template.id
                           ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                          : 'border-borde hover:border-gray-300'
                       }`}
                     >
-                      <div className="font-medium text-gray-900">{template.name}</div>
-                      <div className="text-sm text-gray-600">{template.description}</div>
+                      <div className="font-medium text-texto">{template.name}</div>
+                      <div className="text-sm text-chocolate-200">{template.description}</div>
                     </button>
                   ))}
                 </div>
@@ -309,7 +309,7 @@ const EmailSignature = () => {
 
               {/* Options */}
               <div className="space-y-4 mb-6">
-                <h3 className="text-md font-medium text-gray-900">Opciones</h3>
+                <h3 className="text-md font-medium text-texto">Opciones</h3>
                 <div className="space-y-3">
                   <label className="flex items-center">
                     <input
@@ -415,18 +415,18 @@ const EmailSignature = () => {
 
           {/* Digital Signature Section */}
           {selectedCard && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Firma Digital</h2>
+            <div className="luxury-card rounded-lg shadow-sm border border-borde p-6">
+              <h2 className="text-lg font-medium text-texto mb-4">Firma Digital</h2>
               
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-md font-medium text-gray-900">Crear Firma</h3>
-                    <p className="text-sm text-gray-600">Dibuja tu firma digital para incluirla en emails</p>
+                    <h3 className="text-md font-medium text-texto">Crear Firma</h3>
+                    <p className="text-sm text-chocolate-200">Dibuja tu firma digital para incluirla en emails</p>
                   </div>
                   <button
                     onClick={() => setShowSignatureCanvas(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                    className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white rounded-lg transition-colors"
                   >
                     <PenTool size={18} />
                     <span>Crear Firma</span>
@@ -436,7 +436,7 @@ const EmailSignature = () => {
                 {digitalSignature && (
                   <div className="border rounded-lg p-4 bg-gray-50">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-sm font-medium text-gray-900">Firma Actual</h4>
+                      <h4 className="text-sm font-medium text-texto">Firma Actual</h4>
                       <div className="flex space-x-2">
                         <button
                           onClick={() => setShowSignatureCanvas(true)}
@@ -458,7 +458,7 @@ const EmailSignature = () => {
                     <img
                       src={digitalSignature}
                       alt="Firma digital"
-                      className="max-w-xs h-auto border border-gray-300 bg-white p-2 rounded"
+                      className="max-w-xs h-auto border border-gray-300 luxury-card p-2 rounded"
                     />
                   </div>
                 )}
@@ -468,12 +468,12 @@ const EmailSignature = () => {
 
           {/* Actions */}
           {selectedCard && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Acciones</h2>
+            <div className="luxury-card rounded-lg shadow-sm border border-borde p-6">
+              <h2 className="text-lg font-medium text-texto mb-4">Acciones</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <button
                   onClick={handleCopySignature}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+                  className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors"
                 >
                   <Copy size={18} />
                   <span>Copiar Firma</span>
@@ -499,8 +499,8 @@ const EmailSignature = () => {
 
         {/* Preview Panel */}
         <div className="lg:sticky lg:top-8 lg:h-fit">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-lg font-medium text-gray-900 mb-4">Vista Previa</h2>
+          <div className="luxury-card rounded-lg shadow-sm border border-borde p-6">
+            <h2 className="text-lg font-medium text-texto mb-4">Vista Previa</h2>
             
             {selectedCard ? (
               <div>
@@ -522,7 +522,7 @@ const EmailSignature = () => {
             ) : (
               <div className="text-center py-12">
                 <Mail className="w-16 h-16 mx-auto text-gray-400 mb-4" />
-                <p className="text-gray-600">
+                <p className="text-chocolate-200">
                   Selecciona una tarjeta para crear la firma de email
                 </p>
               </div>

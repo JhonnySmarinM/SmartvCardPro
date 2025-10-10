@@ -56,10 +56,10 @@ const CardEditor = () => {
 
   const [design, setDesign] = useState({
     template: 'modern',
-    primaryColor: '#3B82F6',
-    secondaryColor: '#1F2937',
-    backgroundColor: '#FFFFFF',
-    textColor: '#1F2937',
+    primaryColor: '#E91E63',
+    secondaryColor: '#5C4033',
+    backgroundColor: '#36454F',
+    textColor: '#F5F1EF',
     fontFamily: 'Inter',
     borderRadius: '12px',
     shadow: 'medium',
@@ -142,15 +142,15 @@ const CardEditor = () => {
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate('/')}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-texto hover:text-fucsia-300 hover:bg-carbon-600 rounded-lg transition-all"
           >
             <ChevronLeft size={20} />
           </button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-texto">
               {currentCard ? 'Editar Tarjeta' : 'Nueva Tarjeta'}
             </h1>
-            <p className="text-gray-600">
+            <p className="text-chocolate-200">
               {currentCard ? 'Modifica los datos de tu tarjeta' : 'Crea tu tarjeta de visita digital'}
             </p>
           </div>
@@ -159,14 +159,14 @@ const CardEditor = () => {
         <div className="flex items-center space-x-3">
           <button
             onClick={() => setPreviewMode(!previewMode)}
-            className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+            className="p-2 text-texto hover:text-turquesa-300 hover:bg-turquesa-500/20 rounded-lg transition-all hover:shadow-glow-turquesa"
             title="Vista previa"
           >
             <Eye size={20} />
           </button>
           <button
             onClick={handleSave}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-colors"
+            className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-all shadow-glow-fucsia shine-effect"
           >
             <Save size={18} />
             <span>Guardar</span>
@@ -178,18 +178,18 @@ const CardEditor = () => {
         {/* Editor Panel */}
         <div className="space-y-6">
           {/* Tabs */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-            <div className="flex border-b border-gray-200">
+          <div className="luxury-card rounded-lg shine-effect">
+            <div className="flex border-b border-borde bg-gradient-to-r from-chocolate-600 to-carbon-600">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
                 return (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex-1 flex items-center justify-center space-x-2 px-4 py-3 text-sm font-medium transition-colors ${
+                    className={`flex-1 flex items-center justify-center space-x-2 px-4 py-3 text-sm font-medium transition-all ${
                       activeTab === tab.id
-                        ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        ? 'text-fucsia-300 border-b-2 border-fucsia-500 bg-fucsia-500/20 shadow-glow-fucsia'
+                        : 'text-texto hover:text-fucsia-300 hover:bg-carbon-600/50'
                     }`}
                   >
                     <Icon size={18} />
@@ -205,29 +205,29 @@ const CardEditor = () => {
                 <div className="space-y-6">
                   {/* Basic Info */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Información Básica</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Información Básica</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Nombre *
                         </label>
                         <input
                           type="text"
                           value={contactData.firstName}
                           onChange={(e) => setContactData(prev => ({ ...prev, firstName: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="Tu nombre"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Apellido *
                         </label>
                         <input
                           type="text"
                           value={contactData.lastName}
                           onChange={(e) => setContactData(prev => ({ ...prev, lastName: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="Tu apellido"
                         />
                       </div>
@@ -236,29 +236,29 @@ const CardEditor = () => {
 
                   {/* Company Info */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Información de la Empresa</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Información de la Empresa</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Empresa
                         </label>
                         <input
                           type="text"
                           value={contactData.company}
                           onChange={(e) => setContactData(prev => ({ ...prev, company: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="Nombre de la empresa"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Cargo
                         </label>
                         <input
                           type="text"
                           value={contactData.jobTitle}
                           onChange={(e) => setContactData(prev => ({ ...prev, jobTitle: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="Tu cargo o título"
                         />
                       </div>
@@ -267,53 +267,53 @@ const CardEditor = () => {
 
                   {/* Contact Info */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Información de Contacto</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Información de Contacto</h3>
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Email
                         </label>
                         <input
                           type="email"
                           value={contactData.email}
                           onChange={(e) => setContactData(prev => ({ ...prev, email: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="tu@email.com"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Teléfono
                         </label>
                         <input
                           type="tel"
                           value={contactData.phone}
                           onChange={(e) => setContactData(prev => ({ ...prev, phone: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="+1 234 567 890"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Sitio Web
                         </label>
                         <input
                           type="url"
                           value={contactData.website}
                           onChange={(e) => setContactData(prev => ({ ...prev, website: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="https://tuwebsite.com"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Dirección
                         </label>
                         <input
                           type="text"
                           value={contactData.address}
                           onChange={(e) => setContactData(prev => ({ ...prev, address: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="Tu dirección"
                         />
                       </div>
@@ -322,53 +322,53 @@ const CardEditor = () => {
 
                   {/* Social Media */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Redes Sociales</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Redes Sociales</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           LinkedIn
                         </label>
                         <input
                           type="url"
                           value={contactData.linkedin}
                           onChange={(e) => setContactData(prev => ({ ...prev, linkedin: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="https://linkedin.com/in/tu-perfil"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Twitter
                         </label>
                         <input
                           type="url"
                           value={contactData.twitter}
                           onChange={(e) => setContactData(prev => ({ ...prev, twitter: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="https://twitter.com/tu-usuario"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Instagram
                         </label>
                         <input
                           type="url"
                           value={contactData.instagram}
                           onChange={(e) => setContactData(prev => ({ ...prev, instagram: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="https://instagram.com/tu-usuario"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           WhatsApp
                         </label>
                         <input
                           type="tel"
                           value={contactData.whatsapp}
                           onChange={(e) => setContactData(prev => ({ ...prev, whatsapp: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                           placeholder="+1 234 567 890"
                         />
                       </div>
@@ -377,27 +377,27 @@ const CardEditor = () => {
 
                   {/* Bio */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-chocolate-200 mb-2">
                       Biografía
                     </label>
                     <textarea
                       value={contactData.bio}
                       onChange={(e) => setContactData(prev => ({ ...prev, bio: e.target.value }))}
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent"
                       placeholder="Cuéntanos sobre ti..."
                     />
                   </div>
 
                   {/* Images */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Imágenes</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Imágenes</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Foto de Perfil
                         </label>
-                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                        <div className="border-2 border-dashed border-borde rounded-lg p-4 text-center">
                           {contactData.photo ? (
                             <div className="relative">
                               <img
@@ -415,7 +415,7 @@ const CardEditor = () => {
                           ) : (
                             <label
                               htmlFor="photo-upload"
-                              className="block cursor-pointer hover:bg-gray-50 transition-colors"
+                              className="block cursor-pointer hover:bg-carbon-600/30 transition-colors"
                             >
                               <div>
                                 <Upload className="w-8 h-8 mx-auto text-gray-400 mb-2" />
@@ -435,10 +435,10 @@ const CardEditor = () => {
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Logo de Empresa
                         </label>
-                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                        <div className="border-2 border-dashed border-borde rounded-lg p-4 text-center">
                           {contactData.logo ? (
                             <div className="relative">
                               <img
@@ -456,7 +456,7 @@ const CardEditor = () => {
                           ) : (
                             <label
                               htmlFor="logo-upload"
-                              className="block cursor-pointer hover:bg-gray-50 transition-colors"
+                              className="block cursor-pointer hover:bg-carbon-600/30 transition-colors"
                             >
                               <div>
                                 <Upload className="w-8 h-8 mx-auto text-gray-400 mb-2" />
@@ -485,7 +485,7 @@ const CardEditor = () => {
                 <div className="space-y-6">
                   {/* Templates */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Plantillas</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Plantillas</h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {Object.entries(templates).map(([key, template]) => (
                         <button
@@ -494,13 +494,13 @@ const CardEditor = () => {
                           className={`p-4 border-2 rounded-lg transition-colors ${
                             design.template === key
                               ? 'border-blue-500 bg-blue-50'
-                              : 'border-gray-200 hover:border-gray-300'
+                              : 'border-borde hover:border-borde'
                           }`}
                         >
                           <div className="text-center">
-                            <div className="w-12 h-8 mx-auto mb-2 rounded bg-gradient-to-r from-blue-500 to-purple-600"></div>
-                            <p className="text-sm font-medium text-gray-900">{template.name}</p>
-                            <p className="text-xs text-gray-600">{template.description}</p>
+                            <div className="w-12 h-8 mx-auto mb-2 rounded bg-gradient-to-r from-fucsia-500 to-turquesa-500"></div>
+                            <p className="text-sm font-medium text-texto">{template.name}</p>
+                            <p className="text-xs text-texto">{template.description}</p>
                           </div>
                         </button>
                       ))}
@@ -509,50 +509,50 @@ const CardEditor = () => {
 
                   {/* Colors */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Colores</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Colores</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Color Principal
                         </label>
                         <input
                           type="color"
                           value={design.primaryColor}
                           onChange={(e) => setDesign(prev => ({ ...prev, primaryColor: e.target.value }))}
-                          className="w-full h-10 border border-gray-300 rounded-lg cursor-pointer"
+                          className="w-full h-10 border border-borde rounded-lg cursor-pointer"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Color Secundario
                         </label>
                         <input
                           type="color"
                           value={design.secondaryColor}
                           onChange={(e) => setDesign(prev => ({ ...prev, secondaryColor: e.target.value }))}
-                          className="w-full h-10 border border-gray-300 rounded-lg cursor-pointer"
+                          className="w-full h-10 border border-borde rounded-lg cursor-pointer"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Color de Fondo
                         </label>
                         <input
                           type="color"
                           value={design.backgroundColor}
                           onChange={(e) => setDesign(prev => ({ ...prev, backgroundColor: e.target.value }))}
-                          className="w-full h-10 border border-gray-300 rounded-lg cursor-pointer"
+                          className="w-full h-10 border border-borde rounded-lg cursor-pointer"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Color de Texto
                         </label>
                         <input
                           type="color"
                           value={design.textColor}
                           onChange={(e) => setDesign(prev => ({ ...prev, textColor: e.target.value }))}
-                          className="w-full h-10 border border-gray-300 rounded-lg cursor-pointer"
+                          className="w-full h-10 border border-borde rounded-lg cursor-pointer"
                         />
                       </div>
                     </div>
@@ -560,15 +560,15 @@ const CardEditor = () => {
 
                   {/* Typography */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Tipografía</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Tipografía</h3>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-chocolate-200 mb-2">
                         Fuente
                       </label>
                       <select
                         value={design.fontFamily}
                         onChange={(e) => setDesign(prev => ({ ...prev, fontFamily: e.target.value }))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                        className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                       >
                         <option value="Inter">Inter</option>
                         <option value="Helvetica">Helvetica</option>
@@ -582,16 +582,16 @@ const CardEditor = () => {
 
                   {/* Layout */}
                   <div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-4">Diseño</h3>
+                    <h3 className="text-lg font-medium text-texto mb-4">Diseño</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Bordes Redondeados
                         </label>
                         <select
                           value={design.borderRadius}
                           onChange={(e) => setDesign(prev => ({ ...prev, borderRadius: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                         >
                           <option value="0px">Sin bordes</option>
                           <option value="4px">Pequeños</option>
@@ -601,13 +601,13 @@ const CardEditor = () => {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-chocolate-200 mb-2">
                           Sombra
                         </label>
                         <select
                           value={design.shadow}
                           onChange={(e) => setDesign(prev => ({ ...prev, shadow: e.target.value }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                          className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                         >
                           <option value="none">Sin sombra</option>
                           <option value="light">Ligera</option>
@@ -623,12 +623,12 @@ const CardEditor = () => {
               {/* Preview Tab */}
               {activeTab === 'preview' && (
                 <div className="text-center py-8">
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-texto mb-4">
                     Vista previa de tu tarjeta digital
                   </p>
                   <button
                     onClick={() => setPreviewMode(true)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors"
+                    className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-6 py-2 rounded-lg transition-colors"
                   >
                     Ver Vista Previa Completa
                   </button>
@@ -640,8 +640,8 @@ const CardEditor = () => {
 
         {/* Preview Panel */}
         <div className="lg:sticky lg:top-8 lg:h-fit">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">Vista Previa</h3>
+          <div className="luxury-card rounded-lg p-6 veladura-turquesa">
+            <h3 className="text-lg font-medium text-texto mb-4">Vista Previa</h3>
             <div 
               className="w-full max-w-sm mx-auto border rounded-lg p-6 relative overflow-hidden"
               style={{
@@ -744,12 +744,12 @@ const CardEditor = () => {
       {/* Preview Modal */}
       {previewMode && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between p-4 border-b">
-              <h2 className="text-xl font-semibold text-gray-900">Vista Previa Completa</h2>
+          <div className="luxury-card rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between p-4 border-b border-borde bg-gradient-to-r from-chocolate-600 to-carbon-600">
+              <h2 className="text-xl font-semibold text-texto">Vista Previa Completa</h2>
               <button
                 onClick={() => setPreviewMode(false)}
-                className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+                className="p-2 text-texto hover:text-texto transition-colors"
               >
                 <X size={24} />
               </button>
@@ -758,7 +758,7 @@ const CardEditor = () => {
             <div className="p-6">
               <div className="max-w-2xl mx-auto">
                 <div 
-                  className="bg-white rounded-lg shadow-lg p-8 mx-auto relative overflow-hidden"
+                  className="luxury-card rounded-lg shadow-luxury p-8 mx-auto relative overflow-hidden"
                   style={{
                     background: design.backgroundColor.includes('gradient') 
                       ? design.backgroundColor 

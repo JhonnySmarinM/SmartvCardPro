@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
   Share2, 
@@ -19,11 +19,13 @@ import {
 import { QRCodeSVG } from 'qrcode.react';
 import useCardStore from '../store/cardStore';
 import toast from 'react-hot-toast';
+import html2canvas from 'html2canvas';
 
 const CardPreview = () => {
   const { cardId } = useParams();
   const navigate = useNavigate();
   const { cards } = useCardStore();
+  const cardRef = useRef(null);
   
   const [card, setCard] = useState(null);
   const [showQR, setShowQR] = useState(false);
@@ -56,9 +58,36 @@ const CardPreview = () => {
     }
   };
 
-  const handleDownload = () => {
-    // Implementar descarga de la tarjeta como imagen
-    toast.success('Función de descarga próximamente disponible');
+  const handleDownload = async () => {
+    if (!cardRef.current) return;
+    
+    try {
+      toast.loading('Generando imagen...', { id: 'download' });
+      
+      const canvas = await html2canvas(cardRef.current, {
+        backgroundColor: null,
+        scale: 2, // Alta resolución
+        useCORS: true,
+        allowTaint: true,
+        width: cardRef.current.offsetWidth,
+        height: cardRef.current.offsetHeight,
+      });
+      
+      // Crear enlace de descarga
+      const link = document.createElement('a');
+      link.download = `${card.contactData.firstName}_${card.contactData.lastName}_tarjeta.png`;
+      link.href = canvas.toDataURL('image/png');
+      
+      // Descargar
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      toast.success('Tarjeta descargada correctamente', { id: 'download' });
+    } catch (error) {
+      console.error('Error al descargar:', error);
+      toast.error('Error al descargar la tarjeta', { id: 'download' });
+    }
   };
 
   const handleContact = (type, value) => {
@@ -88,14 +117,14 @@ const CardPreview = () => {
 
   if (!card) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-luxury flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-4"></div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Tarjeta no encontrada</h2>
-          <p className="text-gray-600 mb-4">La tarjeta que buscas no existe o ha sido eliminada.</p>
+          <h2 className="text-xl font-semibold text-texto mb-2">Tarjeta no encontrada</h2>
+          <p className="text-chocolate-200 mb-4">La tarjeta que buscas no existe o ha sido eliminada.</p>
           <button
             onClick={() => navigate('/')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors"
+            className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-6 py-2 rounded-lg transition-colors"
           >
             Volver al inicio
           </button>
@@ -107,14 +136,14 @@ const CardPreview = () => {
   const { contactData, design } = card;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-luxury">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
+      <div className="luxury-card shadow-sm border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <button
               onClick={() => navigate('/')}
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
+              className="flex items-center space-x-2 text-chocolate-200 hover:text-texto transition-colors"
             >
               <ArrowLeft size={20} />
               <span>Volver</span>
@@ -123,28 +152,28 @@ const CardPreview = () => {
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => setShowQR(!showQR)}
-                className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                className="p-2 text-chocolate-200 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                 title="Mostrar QR"
               >
                 <QrCode size={20} />
               </button>
               <button
                 onClick={handleCopyLink}
-                className="p-2 text-gray-600 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                className="p-2 text-chocolate-200 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                 title="Copiar enlace"
               >
                 <Copy size={20} />
               </button>
               <button
                 onClick={handleShare}
-                className="p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
+                className="p-2 text-chocolate-200 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
                 title="Compartir"
               >
                 <Share2 size={20} />
               </button>
               <button
                 onClick={handleDownload}
-                className="p-2 text-gray-600 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
+                className="p-2 text-chocolate-200 hover:text-fucsia-300 hover:bg-fucsia-500/20 rounded-lg transition-all hover:shadow-glow-fucsia"
                 title="Descargar"
               >
                 <Download size={20} />
@@ -159,7 +188,8 @@ const CardPreview = () => {
           {/* Main Card */}
           <div className="lg:col-span-2">
             <div 
-              className="bg-white rounded-lg shadow-lg p-8 relative overflow-hidden"
+              ref={cardRef}
+              className="luxury-card rounded-lg shadow-lg p-8 relative overflow-hidden"
               style={{
                 background: design.backgroundColor.includes('gradient') 
                   ? design.backgroundColor 
@@ -204,7 +234,7 @@ const CardPreview = () => {
                 {contactData.email && (
                   <button
                     onClick={() => handleContact('email', contactData.email)}
-                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gradient-luxury transition-colors"
                   >
                     <Mail size={20} />
                     <span>{contactData.email}</span>
@@ -214,7 +244,7 @@ const CardPreview = () => {
                 {contactData.phone && (
                   <button
                     onClick={() => handleContact('phone', contactData.phone)}
-                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gradient-luxury transition-colors"
                   >
                     <Phone size={20} />
                     <span>{contactData.phone}</span>
@@ -224,7 +254,7 @@ const CardPreview = () => {
                 {contactData.website && (
                   <button
                     onClick={() => handleContact('website', contactData.website)}
-                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gradient-luxury transition-colors"
                   >
                     <Globe size={20} />
                     <span>{contactData.website}</span>
@@ -317,8 +347,8 @@ const CardPreview = () => {
           <div className="space-y-6">
             {/* QR Code */}
             {showQR && (
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Código QR</h3>
+              <div className="luxury-card rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 className="text-lg font-medium text-texto mb-4">Código QR</h3>
                 <div className="text-center">
                   <QRCodeSVG
                     value={window.location.href}
@@ -328,52 +358,42 @@ const CardPreview = () => {
                     bgColor="#FFFFFF"
                     fgColor="#000000"
                   />
-                  <p className="text-sm text-gray-600 mt-3">
+                  <p className="text-sm text-chocolate-200 mt-3">
                     Escanea para compartir esta tarjeta
                   </p>
                 </div>
               </div>
             )}
 
-            {/* Quick Actions */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Acciones Rápidas</h3>
-              <div className="space-y-3">
-                {contactData.email && (
-                  <button
-                    onClick={() => handleContact('email', contactData.email)}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
-                  >
-                    <Mail size={18} />
-                    <span>Enviar Email</span>
-                  </button>
-                )}
-                
-                {contactData.phone && (
-                  <button
-                    onClick={() => handleContact('phone', contactData.phone)}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
-                  >
-                    <Phone size={18} />
-                    <span>Llamar</span>
-                  </button>
-                )}
-                
-                {contactData.whatsapp && (
-                  <button
-                    onClick={() => handleContact('whatsapp', contactData.whatsapp)}
-                    className="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
-                  >
-                    <MessageCircle size={18} />
-                    <span>WhatsApp</span>
-                  </button>
-                )}
-              </div>
-            </div>
+             {/* Quick Actions */}
+             <div className="luxury-card rounded-lg shadow-sm border border-gray-200 p-6">
+               <h3 className="text-lg font-medium text-texto mb-4">Acciones Rápidas</h3>
+               <div className="space-y-3">
+                 {contactData.email && (
+                   <button
+                     onClick={() => handleContact('email', contactData.email)}
+                     className="w-full bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+                   >
+                     <Mail size={18} />
+                     <span>Enviar Email</span>
+                   </button>
+                 )}
+                 
+                 {contactData.whatsapp && (
+                   <button
+                     onClick={() => handleContact('whatsapp', contactData.whatsapp)}
+                     className="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+                   >
+                     <MessageCircle size={18} />
+                     <span>WhatsApp</span>
+                   </button>
+                 )}
+               </div>
+             </div>
 
             {/* Share Options */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Compartir</h3>
+            <div className="luxury-card rounded-lg shadow-sm border border-gray-200 p-6">
+              <h3 className="text-lg font-medium text-texto mb-4">Compartir</h3>
               <div className="space-y-3">
                 <button
                   onClick={handleCopyLink}

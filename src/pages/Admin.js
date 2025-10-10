@@ -57,14 +57,21 @@ const Admin = () => {
   return (
     <div className={styles.container}>
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
-      <header className={styles.header}>
-        <button className={styles.button} onClick={() => window.location.href = '/'}>
-          Form QR
+      {/* Auth Header - Solo visible si está autenticado */}
+      <div className="flex justify-end gap-4 mb-4">
+        <button
+          onClick={() => window.location.href = '/admin'}
+          className="px-4 py-2 bg-gradient-to-r from-turquesa-500 to-turquesa-600 hover:from-turquesa-600 hover:to-turquesa-700 text-white rounded-lg transition-all font-medium shadow-glow-turquesa hover:shadow-luxury shine-effect"
+        >
+          Admin
         </button>
-        <button className={styles.button} onClick={handleLogout}>
-          Salir
+        <button
+          onClick={handleLogout}
+          className="px-4 py-2 bg-carbon-600 hover:bg-carbon-700 text-texto rounded-lg transition-all font-medium shadow-luxury"
+        >
+          Out
         </button>
-      </header>
+      </div>
       <h2 className={styles.title}>Admin Panel</h2>
       <div className={styles.listContainer}>
         {isLoading ? (

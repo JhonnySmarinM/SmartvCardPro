@@ -83,13 +83,13 @@ const Settings = () => {
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate('/')}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-chocolate-200 hover:text-texto hover:bg-carbon-600 rounded-lg transition-colors"
           >
             <ChevronLeft size={20} />
           </button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Configuración</h1>
-            <p className="text-gray-600">
+            <h1 className="text-3xl font-bold text-texto">Configuración</h1>
+            <p className="text-chocolate-200">
               Personaliza la aplicación según tus preferencias
             </p>
           </div>
@@ -97,7 +97,7 @@ const Settings = () => {
         
         <button
           onClick={handleSaveSettings}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-colors"
+          className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-6 py-2 rounded-lg flex items-center space-x-2 transition-colors"
         >
           <Save size={18} />
           <span>Guardar</span>
@@ -107,9 +107,9 @@ const Settings = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Tabs */}
         <div className="lg:col-span-1">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+          <div className="luxury-card rounded-lg shadow-sm border border-borde">
             <div className="p-4">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Categorías</h2>
+              <h2 className="text-lg font-medium text-texto mb-4">Categorías</h2>
               <nav className="space-y-2">
                 {tabs.map((tab) => {
                   const Icon = tab.icon;
@@ -120,7 +120,7 @@ const Settings = () => {
                       className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors ${
                         activeTab === tab.id
                           ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                          : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                          : 'text-chocolate-200 hover:text-texto hover:bg-gray-50'
                       }`}
                     >
                       <Icon size={18} />
@@ -135,12 +135,12 @@ const Settings = () => {
 
         {/* Content */}
         <div className="lg:col-span-3">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+          <div className="luxury-card rounded-lg shadow-sm border border-borde">
             <div className="p-6">
               {/* General Settings */}
               {activeTab === 'general' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Configuración General</h2>
+                  <h2 className="text-xl font-semibold text-texto">Configuración General</h2>
                   
                   <div>
                     <label className="flex items-center">
@@ -148,9 +148,9 @@ const Settings = () => {
                         type="checkbox"
                         checked={localSettings.autoSave}
                         onChange={(e) => setLocalSettings(prev => ({ ...prev, autoSave: e.target.checked }))}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-borde text-fucsia-500 focus:ring-fucsia-500"
                       />
-                      <span className="ml-2 text-sm text-gray-700">Guardado automático</span>
+                      <span className="ml-2 text-sm text-chocolate-200">Guardado automático</span>
                     </label>
                     <p className="text-xs text-gray-500 mt-1">
                       Guarda automáticamente los cambios en tus tarjetas
@@ -158,13 +158,13 @@ const Settings = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-chocolate-200 mb-2">
                       Plantilla por defecto
                     </label>
                     <select
                       value={localSettings.defaultTemplate}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, defaultTemplate: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                      className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                     >
                       <option value="modern">Moderno</option>
                       <option value="classic">Clásico</option>
@@ -178,16 +178,16 @@ const Settings = () => {
               {/* Appearance Settings */}
               {activeTab === 'appearance' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Apariencia</h2>
+                  <h2 className="text-xl font-semibold text-texto">Apariencia</h2>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-chocolate-200 mb-2">
                       Estilo del código QR
                     </label>
                     <select
                       value={localSettings.qrCodeStyle}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, qrCodeStyle: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                      className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                     >
                       <option value="default">Por defecto</option>
                       <option value="rounded">Redondeado</option>
@@ -197,13 +197,13 @@ const Settings = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-chocolate-200 mb-2">
                       Plantilla de firma de email
                     </label>
                     <select
                       value={localSettings.emailSignatureTemplate}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, emailSignatureTemplate: e.target.value }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+                      className="w-full px-3 py-2 border border-borde rounded-lg focus:ring-2 focus:ring-fucsia-500 focus:border-transparent text-black"
                     >
                       <option value="standard">Estándar</option>
                       <option value="minimal">Minimalista</option>
@@ -216,7 +216,7 @@ const Settings = () => {
               {/* Notifications Settings */}
               {activeTab === 'notifications' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Notificaciones</h2>
+                  <h2 className="text-xl font-semibold text-texto">Notificaciones</h2>
                   
                   <div>
                     <label className="flex items-center">
@@ -230,9 +230,9 @@ const Settings = () => {
                             enabled: e.target.checked 
                           } 
                         }))}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-borde text-fucsia-500 focus:ring-fucsia-500"
                       />
-                      <span className="ml-2 text-sm text-gray-700">Habilitar notificaciones</span>
+                      <span className="ml-2 text-sm text-chocolate-200">Habilitar notificaciones</span>
                     </label>
                   </div>
 
@@ -248,9 +248,9 @@ const Settings = () => {
                             saveReminder: e.target.checked 
                           } 
                         }))}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-borde text-fucsia-500 focus:ring-fucsia-500"
                       />
-                      <span className="ml-2 text-sm text-gray-700">Recordatorio de guardado</span>
+                      <span className="ml-2 text-sm text-chocolate-200">Recordatorio de guardado</span>
                     </label>
                   </div>
                 </div>
@@ -259,12 +259,12 @@ const Settings = () => {
               {/* Data Settings */}
               {activeTab === 'data' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Gestión de Datos</h2>
+                  <h2 className="text-xl font-semibold text-texto">Gestión de Datos</h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 border border-gray-200 rounded-lg">
-                      <h3 className="font-medium text-gray-900 mb-2">Exportar Datos</h3>
-                      <p className="text-sm text-gray-600 mb-3">
+                    <div className="p-4 border border-borde rounded-lg">
+                      <h3 className="font-medium text-texto mb-2">Exportar Datos</h3>
+                      <p className="text-sm text-chocolate-200 mb-3">
                         Descarga una copia de seguridad de todas tus tarjetas y configuraciones
                       </p>
                       <button
@@ -276,12 +276,12 @@ const Settings = () => {
                       </button>
                     </div>
 
-                    <div className="p-4 border border-gray-200 rounded-lg">
-                      <h3 className="font-medium text-gray-900 mb-2">Importar Datos</h3>
-                      <p className="text-sm text-gray-600 mb-3">
+                    <div className="p-4 border border-borde rounded-lg">
+                      <h3 className="font-medium text-texto mb-2">Importar Datos</h3>
+                      <p className="text-sm text-chocolate-200 mb-3">
                         Restaura tus datos desde un archivo de respaldo
                       </p>
-                      <label className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors cursor-pointer">
+                      <label className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-colors cursor-pointer">
                         <Upload size={16} />
                         <span>Importar</span>
                         <input
@@ -313,7 +313,7 @@ const Settings = () => {
               {/* Privacy Settings */}
               {activeTab === 'privacy' && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Privacidad</h2>
+                  <h2 className="text-xl font-semibold text-texto">Privacidad</h2>
                   
                   <div>
                     <label className="flex items-center">
@@ -327,9 +327,9 @@ const Settings = () => {
                             analytics: e.target.checked 
                           } 
                         }))}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-borde text-fucsia-500 focus:ring-fucsia-500"
                       />
-                      <span className="ml-2 text-sm text-gray-700">Permitir análisis de uso</span>
+                      <span className="ml-2 text-sm text-chocolate-200">Permitir análisis de uso</span>
                     </label>
                     <p className="text-xs text-gray-500 mt-1">
                       Nos ayuda a mejorar la aplicación (datos anónimos)
@@ -348,9 +348,9 @@ const Settings = () => {
                             shareUsage: e.target.checked 
                           } 
                         }))}
-                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        className="rounded border-borde text-fucsia-500 focus:ring-fucsia-500"
                       />
-                      <span className="ml-2 text-sm text-gray-700">Compartir datos de uso</span>
+                      <span className="ml-2 text-sm text-chocolate-200">Compartir datos de uso</span>
                     </label>
                     <p className="text-xs text-gray-500 mt-1">
                       Comparte estadísticas anónimas para mejorar el servicio

@@ -135,13 +135,13 @@ const Templates = () => {
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate('/')}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-chocolate-200 hover:text-texto hover:bg-carbon-600 rounded-lg transition-colors"
           >
             <ChevronLeft size={20} />
           </button>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Plantillas</h1>
-            <p className="text-gray-600">
+            <h1 className="text-3xl font-bold text-texto">Plantillas</h1>
+            <p className="text-chocolate-200">
               Explora y personaliza las plantillas disponibles
             </p>
           </div>
@@ -149,7 +149,7 @@ const Templates = () => {
         
         <button
           onClick={() => setPreviewMode(!previewMode)}
-          className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+          className="p-2 text-chocolate-200 hover:text-fucsia-300 hover:bg-blue-50 rounded-lg transition-colors"
           title="Vista previa"
         >
           <Eye size={20} />
@@ -164,8 +164,8 @@ const Templates = () => {
             return (
               <div key={category.name} className="mb-8">
                 <div className="flex items-center space-x-2 mb-6">
-                  <Icon className="w-6 h-6 text-blue-600" />
-                  <h2 className="text-2xl font-bold text-gray-900">{category.name}</h2>
+                  <Icon className="w-6 h-6 text-fucsia-300" />
+                  <h2 className="text-2xl font-bold text-texto">{category.name}</h2>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -176,10 +176,10 @@ const Templates = () => {
                     return (
                       <div
                         key={templateKey}
-                        className={`bg-white rounded-lg shadow-sm border-2 transition-all cursor-pointer ${
+                        className={`luxury-card rounded-lg shadow-sm border-2 transition-all cursor-pointer ${
                           selectedTemplate === templateKey
-                            ? 'border-blue-500 shadow-lg'
-                            : 'border-gray-200 hover:border-gray-300'
+                            ? 'border-fucsia-500 shadow-lg'
+                            : 'border-borde hover:border-gray-300'
                         }`}
                         onClick={() => handleTemplateSelect(templateKey)}
                       >
@@ -191,14 +191,14 @@ const Templates = () => {
                         {/* Template Info */}
                         <div className="p-4 border-t border-gray-100">
                           <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-lg font-semibold text-gray-900">
+                            <h3 className="text-lg font-semibold text-texto">
                               {template.name}
                             </h3>
                             {selectedTemplate === templateKey && (
-                              <Check className="w-5 h-5 text-blue-600" />
+                              <Check className="w-5 h-5 text-fucsia-300" />
                             )}
                           </div>
-                          <p className="text-sm text-gray-600 mb-4">
+                          <p className="text-sm text-chocolate-200 mb-4">
                             {template.description}
                           </p>
                           
@@ -223,7 +223,7 @@ const Templates = () => {
                                 e.stopPropagation();
                                 handleUseTemplate(templateKey);
                               }}
-                              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
+                              className="bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
                             >
                               Usar Plantilla
                             </button>
@@ -240,8 +240,8 @@ const Templates = () => {
 
         {/* Preview Panel */}
         <div className="lg:sticky lg:top-8 lg:h-fit">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h2 className="text-lg font-medium text-gray-900 mb-4">Vista Previa</h2>
+          <div className="luxury-card rounded-lg shadow-sm border border-borde p-6">
+            <h2 className="text-lg font-medium text-texto mb-4">Vista Previa</h2>
             
             {selectedTemplate ? (
               <div>
@@ -251,17 +251,17 @@ const Templates = () => {
                 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-medium text-gray-900 mb-2">
+                    <h3 className="font-medium text-texto mb-2">
                       {templates[selectedTemplate]?.name}
                     </h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-chocolate-200">
                       {templates[selectedTemplate]?.description}
                     </p>
                   </div>
                   
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Características</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h4 className="font-medium text-texto mb-2">Características</h4>
+                    <ul className="text-sm text-chocolate-200 space-y-1">
                       <li>• Diseño {templates[selectedTemplate]?.design.layout === 'vertical' ? 'vertical' : 'horizontal'}</li>
                       <li>• Bordes {templates[selectedTemplate]?.design.borderRadius === '0px' ? 'sin redondear' : 'redondeados'}</li>
                       <li>• Sombra {templates[selectedTemplate]?.design.shadow === 'none' ? 'sin sombra' : templates[selectedTemplate]?.design.shadow}</li>
@@ -271,7 +271,7 @@ const Templates = () => {
                   
                   <button
                     onClick={() => handleUseTemplate(selectedTemplate)}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+                    className="w-full bg-gradient-to-r from-fucsia-500 to-fucsia-600 hover:from-fucsia-600 hover:to-fucsia-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
                   >
                     <Zap size={18} />
                     <span>Usar Esta Plantilla</span>
@@ -281,7 +281,7 @@ const Templates = () => {
             ) : (
               <div className="text-center py-12">
                 <Palette className="w-16 h-16 mx-auto text-gray-400 mb-4" />
-                <p className="text-gray-600">
+                <p className="text-chocolate-200">
                   Selecciona una plantilla para ver la vista previa
                 </p>
               </div>
