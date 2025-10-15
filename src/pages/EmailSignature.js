@@ -286,7 +286,7 @@ const EmailSignature = () => {
               
               {/* Template Selection */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-white mb-3">
                   Plantilla
                 </label>
                 <div className="grid grid-cols-1 gap-3">
@@ -300,8 +300,12 @@ const EmailSignature = () => {
                           : 'border-borde hover:border-gray-300'
                       }`}
                     >
-                      <div className="font-medium text-texto">{template.name}</div>
-                      <div className="text-sm text-chocolate-200">{template.description}</div>
+                      <div className={`font-medium ${signatureConfig.template === template.id ? 'text-black' : 'text-texto'}`}>
+                        {template.name}
+                      </div>
+                      <div className={`text-sm ${signatureConfig.template === template.id ? 'text-gray-700' : 'text-white'}`}>
+                        {template.description}
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -309,7 +313,7 @@ const EmailSignature = () => {
 
               {/* Options */}
               <div className="space-y-4 mb-6">
-                <h3 className="text-md font-medium text-texto">Opciones</h3>
+                <h3 className="text-md font-medium text-white">Opciones</h3>
                 <div className="space-y-3">
                   <label className="flex items-center">
                     <input
@@ -318,7 +322,7 @@ const EmailSignature = () => {
                       onChange={(e) => setSignatureConfig(prev => ({ ...prev, includePhoto: e.target.checked }))}
                       className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="ml-2 text-sm text-gray-700">Incluir foto de perfil</span>
+                    <span className="ml-2 text-sm text-white">Incluir foto de perfil</span>
                   </label>
                   <label className="flex items-center">
                     <input
@@ -327,7 +331,7 @@ const EmailSignature = () => {
                       onChange={(e) => setSignatureConfig(prev => ({ ...prev, includeQR: e.target.checked }))}
                       className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="ml-2 text-sm text-gray-700">Incluir enlace a tarjeta digital</span>
+                    <span className="ml-2 text-sm text-white">Incluir enlace a tarjeta digital</span>
                   </label>
                   <label className="flex items-center">
                     <input
@@ -336,7 +340,7 @@ const EmailSignature = () => {
                       onChange={(e) => setSignatureConfig(prev => ({ ...prev, includeSocial: e.target.checked }))}
                       className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="ml-2 text-sm text-gray-700">Incluir redes sociales</span>
+                    <span className="ml-2 text-sm text-white">Incluir redes sociales</span>
                   </label>
                   <label className="flex items-center">
                     <input
@@ -345,7 +349,7 @@ const EmailSignature = () => {
                       onChange={(e) => setSignatureConfig(prev => ({ ...prev, includeSignature: e.target.checked }))}
                       className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="ml-2 text-sm text-gray-700">Incluir firma digital</span>
+                    <span className="ml-2 text-sm text-white">Incluir firma digital</span>
                   </label>
                 </div>
               </div>
@@ -353,7 +357,7 @@ const EmailSignature = () => {
               {/* Typography */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Tamaño de fuente
                   </label>
                   <select
@@ -368,7 +372,7 @@ const EmailSignature = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Fuente
                   </label>
                   <select
@@ -388,7 +392,7 @@ const EmailSignature = () => {
               {/* Colors */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Color de texto
                   </label>
                   <input
@@ -399,7 +403,7 @@ const EmailSignature = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Color de acento
                   </label>
                   <input

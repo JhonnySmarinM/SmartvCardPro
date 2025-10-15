@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resetear Intro - SmartvCard Pro</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #5C4033 0%, #36454F 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F5F1EF;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(233, 30, 99, 0.3);
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #E91E63;
+            text-shadow: 0 0 20px rgba(233, 30, 99, 0.5);
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        button {
+            background: linear-gradient(135deg, #E91E63 0%, #00BCD4 100%);
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+            margin: 10px;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.6);
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 188, 212, 0.2);
+            border-radius: 10px;
+            border: 1px solid #00BCD4;
+        }
+        .code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Control de Intro</h1>
+        <p>Usa esta página para resetear el intro de SmartvCard Pro y verlo de nuevo.</p>
+        
+        <div id="status" class="status">
+            Estado actual: <strong id="currentStatus">Verificando...</strong>
+        </div>
+
+        <button onclick="resetIntro()">🔄 Resetear Intro</button>
+        <button onclick="goToApp()">🚀 Ir a la App</button>
+
+        <div class="code">
+            <strong>Consola del navegador (F12):</strong><br>
+            localStorage.removeItem('smartvcard_intro_seen')
+        </div>
+    </div>
+
+    <script>
+        function checkStatus() {
+            const hasSeenIntro = localStorage.getItem('smartvcard_intro_seen');
+            const statusEl = document.getElementById('currentStatus');
+            
+            if (hasSeenIntro) {
+                statusEl.textContent = '❌ Ya visto (no se mostrará)';
+                statusEl.style.color = '#E91E63';
+            } else {
+                statusEl.textContent = '✅ Primera vez (se mostrará)';
+                statusEl.style.color = '#00BCD4';
+            }
+        }
+
+        function resetIntro() {
+            localStorage.removeItem('smartvcard_intro_seen');
+            alert('✅ Intro reseteado! Ahora ve a la app principal.');
+            checkStatus();
+        }
+
+        function goToApp() {
+            window.location.href = '/';
+        }
+
+        // Verificar estado al cargar
+        checkStatus();
+    </script>
+</body>
+</html>
+

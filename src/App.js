@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import AuthGuard from './components/AuthGuard';
+import IntroAnimation from './components/IntroAnimation';
 import Dashboard from './pages/Dashboard';
 import CardEditor from './pages/CardEditor';
 import QRGenerator from './pages/QRGenerator';
@@ -59,6 +60,34 @@ function AppContent() {
 }
 
 function App() {
+  const [showIntro, setShowIntro] = useState(() => {
+    // Verificar si el usuario ya vio el intro
+    const hasSeenIntro = localStorage.getItem('smartvcard_intro_seen');
+    
+    console.log('🎬 Estado del intro:', hasSeenIntro ? 'YA VISTO' : 'PRIMERA VEZ');
+    
+    // MODO DESARROLLO: Activado temporalmente para pruebas
+    return true; // ⚠️ CAMBIAR A: return !hasSeenIntro; para producción
+    
+    // return !hasSeenIntro; // Mostrar intro solo si NO lo ha visto
+  });
+
+  const handleIntroComplete = () => {
+    console.log('✅ Intro completado - guardando en localStorage');
+    // Marcar que el intro ya fue visto
+    localStorage.setItem('smartvcard_intro_seen', 'true');
+    setShowIntro(false);
+  };
+
+  console.log('🎯 Renderizando App - showIntro:', showIntro);
+
+  // Mostrar intro primero (solo la primera vez)
+  if (showIntro) {
+    console.log('🎥 Mostrando IntroAnimation...');
+    return <IntroAnimation onComplete={handleIntroComplete} enableSkip={true} />;
+  }
+
+  // Después del intro, mostrar la aplicación
   return (
     <Router>
       <AppContent />
